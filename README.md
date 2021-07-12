@@ -2,24 +2,24 @@
 
 Provides feedback to first-year students for the module "Problem Solving With Python" in CS, during development. Examples such as "no need for global keyword", "return answer from function as a number not a string"
 
-# Developement Virtual Environment Reminder
+# Development Virtual Environment Reminder
 
-Creates enviroment in local directory folder called "env", this variable can be changed
-py -m venv env            
+Creates environment in local directory folder called "env", this variable can be changed
+*py -m venv env*  
 
 Starts venv
-.\env\Scripts\activate    
+*.\env\Scripts\activate*
 
 Outputs current module requirements being used
-py -m pip freeze
+*py -m pip freeze*
 
 Installs requirements in file "requirements.txt"
-py -m pip install -r requirements.txt
+*py -m pip install -r requirements.txt*
 
 Stops venv
-deactivate
+*deactivate*
 
 # Install Flake8
-pip install -e .
+*pip install -e .*
 
 This will need to be redone with changes to either setup file
