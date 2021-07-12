@@ -19,4 +19,7 @@ py -m pip install -r requirements.txt
 Stops venv
 deactivate
 
-# 
+# Install Flake8
+pip install -e .
+
+This will need to be redone with changes to either setup file
