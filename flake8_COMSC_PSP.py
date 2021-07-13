@@ -4,11 +4,13 @@ from typing import Generator
 from typing import Tuple
 from typing import Type
 from typing import Any
+from typing import List
 
 if sys.version_info < (3, 8):
     import importlib_metadata
 else:
     import importlib.metadata as importlib_metadata
+
 
 class Visitor(ast.NodeVisitor):
     def __init__(self) -> None:
@@ -28,11 +30,12 @@ class Visitor(ast.NodeVisitor):
                         key.s.isidentifier()
                         for key in keyword.value.keys
                     )
-        ):
+            ):
                 self.problems.append((node.lineno, node.col_offset))
 
         # last function of visits methods
         self.generic_visit(node)
+
 
 class Plugin:
     # display plugin information in help messaging
@@ -46,4 +49,4 @@ class Plugin:
         visitor = Visitor()
         visitor.visit(self._tree)
         for line, col in visitor.problems:
-            yield line, col,'FNA100 all arguments in ** are identifiers', type(self)
+            yield line, col, 'FNA100 named argument should not use **', type(self)
