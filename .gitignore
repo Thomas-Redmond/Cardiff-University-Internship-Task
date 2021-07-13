@@ -2,3 +2,4 @@
 /__pycache__
 /.pytest_cache
 /flake8_COMSC_PSP.egg-info
+/tests/__pycache__
