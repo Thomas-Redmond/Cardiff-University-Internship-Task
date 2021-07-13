@@ -10,6 +10,8 @@ if sys.version_info < (3, 8):
 else:
     import importlib.metadata as importlib_metadata
 
+class Visitor(ast.NodeVisitor):
+    # Recursive descent tree traversal
 
 class Plugin:
     # display plugin information in help messaging
@@ -20,4 +22,5 @@ class Plugin:
         self._tree = tree
 
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
+        return
         yield 1, 0, 'FNA1000 named argument', type(self)
