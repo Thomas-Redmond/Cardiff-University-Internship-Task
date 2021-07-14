@@ -18,6 +18,7 @@ class Visitor(ast.NodeVisitor):
 
     # Recursive descent tree traversal
     def visit_Call(self, node: ast.Call) -> None:
+        # visit_* where Call is a named part of the ast used in tutorial
         for keyword in node.keywords:
             if(
                     keyword.arg is None and
@@ -48,6 +49,6 @@ class Plugin:
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         visitor = Visitor()
         visitor.visit(self._tree)
-        #for line, col in visitor.problems:
-        #    yield line, col, 'FNA100 named argument should not use **', type(self)
-        yield 1, 1,  'FNA100 named argument should not use **', type(self)
+        for line, col in visitor.problems:
+            yield line, col, 'FNA100 named argument should not use **', type(self)
+        # yield 1, 1,  'FNA100 named argument should not use **', type(self)
