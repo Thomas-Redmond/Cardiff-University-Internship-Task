@@ -7,12 +7,12 @@ from typing import Generator
 from typing import Tuple
 from typing import Type
 from typing import Any
-from typing import List
 
 if sys.version_info < (3, 8):
     import importlib_metadata
 else:
     import importlib.metadata as importlib_metadata
+
 
 class Plugin:
     # display plugin information in help messaging
