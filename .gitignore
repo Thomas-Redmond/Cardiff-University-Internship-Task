@@ -1,7 +1,8 @@
 /env
 /__pycache__
 /.pytest_cache
-/flake8_COMSC_PSP.egg-info
+/*.egg-info
+
 /tests/__pycache__
 /build
 /dist
