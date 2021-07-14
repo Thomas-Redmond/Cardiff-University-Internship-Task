@@ -19,7 +19,16 @@ Installs requirements in file "requirements.txt"
 Stops venv
 *deactivate*
 
-# Install Flake8
+# Installing Plugin for development environment
 *pip install -e .*
 
-This will need to be redone with changes to either setup file
+This will need to be redone with changes to setup.cfg
+The plugin can be used at this stage.
+
+# Installing Plugin for use
+*python setup.py install*
+
+# Using Plugin
+*flake8 filename.py*
+Runs flake8 on the designated file, performing all Flake8 and Plugin checks.
+Currently set up (v0.1.2) to always fail on custom plugin check.
