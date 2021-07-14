@@ -1,7 +1,7 @@
 import ast
 from typing import Set
 
-from flake8_COMSC_PSP import Plugin
+from COMSC_Plugin import Plugin
 
 def _results(s: str) -> Set[str]:
     tree = ast.parse(s)
@@ -16,7 +16,7 @@ def test_trivial_case():
 
 def test_incorrect_case():
     # Tests failing input
-    # Asserts 
+    # Asserts
     ret = _results('f(**{"foo": "bar"})')
     assert ret == {'1:1 FNA100 named argument should not use **'}
 
