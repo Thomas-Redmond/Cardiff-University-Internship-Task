@@ -9,7 +9,7 @@ class Visitor(ast.NodeVisitor):
 
     def visit_game(self, node: ast.Call) -> None:
         for keyword in node.keywords:
-            print(keyword)
+            
 
         self.generic_visit(node) # checks child nodes
 
