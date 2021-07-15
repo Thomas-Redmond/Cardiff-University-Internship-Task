@@ -39,7 +39,7 @@ class Visitor(ast.NodeVisitor):
 
 class Plugin:
     name = __name__
-    versions = importlib_metadata.version(__name__)
+    version = importlib_metadata.version(__name__)
 
     def __init__(self, tree: ast.AST) -> None:
         self._tree = tree
