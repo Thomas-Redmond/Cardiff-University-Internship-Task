@@ -18,32 +18,14 @@ else:
 
 class Visitor(ast.NodeVisitor):
     def __init__(self) -> None:
-        self.problems: List[Tuple[int, int]] = []
+        self.problems: List[Tuple[int, int, String]] = []
 
     def visit_Import(self, node: ast.Import) -> None:
-        node == ast.Import('csv')
-        self.problems.append((node.lineno, node.col_offset))
-        print(self.problems)
+        if(node == ast.Import('csv')):
+            self.problems.append((node.lineno, node.col_offset, "X1: jffjsk"))
+
         self.generic_visit(node)
 
-
-
-    def visit_Call(self, node: ast.Call) -> None:
-        for keyword in node.kewords:
-            if(
-                keyword.arg is None and
-                isinstance(keyword.value, ast.Dict) and
-                all(
-                    isinstance(key, ast.Str)
-                    for key in keyword.value.keys
-                ) and
-                all (
-                    key.s.isidentifier()
-                    for key in keyword.value.keys
-                )
-            ):
-                self.problems.append((node.lineno, node.col_offset))
-        self.generic_visit(node)
 
 class Plugin:
     name = __name__
@@ -55,6 +37,5 @@ class Plugin:
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         visitor = Visitor()
         visitor.visit(self._tree)
-        yield 1, 2, 'X2 Error', type(self)
-        yield 1, 1, 'X1 Error', type(self)
-        yield 5, 2, 'X99 Error', type(self)
+        for line, col, error_msg in visitor.problems:
+             yield line, col, error_msg, type(self)
