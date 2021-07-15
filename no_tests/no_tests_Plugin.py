@@ -39,12 +39,12 @@ class Visitor(ast.NodeVisitor):
 
 class Plugin:
     name = __name__
-    versions = importlib.metadata.version(__name__)
+    versions = importlib_metadata.version(__name__)
 
     def __init__(self, tree: ast.AST) -> None:
         self._tree = tree
 
-    def run(self) -> Generator[Tuple[int, int, str, Type[]], None, None]:
+    def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         visitor = Visitor()
         visitor.visit(self._tree)
         yield 1, 1, 'X1 Error', type(self)
