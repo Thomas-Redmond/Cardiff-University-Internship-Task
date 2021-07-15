@@ -20,10 +20,14 @@ class Visitor(ast.NodeVisitor):
     def __init__(self) -> None:
         self.problems: List[Tuple[int, int, String]] = []
 
-    def visit_Import(self, node: ast.Import) -> None:
-        if(node == ast.Import('csv')):
-            self.problems.append((node.lineno, node.col_offset, "X1: jffjsk"))
+    def visit_Import(self, node):
+        csv_detected = False
 
+        for alias in node.names:
+            if alias.name == "csv":
+                csv_detected = True
+        if csv_detected == False:
+            assert{"1, 1, No CSV file detected"}
         self.generic_visit(node)
 
 
@@ -38,4 +42,4 @@ class Plugin:
         visitor = Visitor()
         visitor.visit(self._tree)
         for line, col, error_msg in visitor.problems:
-             yield line, col, error_msg, type(self)
+            yield line, col, error_msg, type(self)
