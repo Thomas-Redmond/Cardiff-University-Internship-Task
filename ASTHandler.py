@@ -6,13 +6,7 @@ import ast
 class Visitor(ast.NodeVisitor):
     def __init__(self) -> None:
         self.problems: List[Tuple[int, int]] = []
-
-    def visit_game(self, node: ast.Call) -> None:
-        for keyword in node.keywords:
-            
-
-        self.generic_visit(node) # checks child nodes
-
+        
     # Recursive descent tree traversal
     def visit_Call(self, node: ast.Call) -> None:
         # visit_* where Call is a named part of the ast used in tutorial

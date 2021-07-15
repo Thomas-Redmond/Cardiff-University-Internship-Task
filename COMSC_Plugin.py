@@ -25,6 +25,6 @@ class Plugin:
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         visitor = ASTHandler.Visitor()
         visitor.visit(self._tree)
-        for line, col in visitor.problems:
-            yield line, col, 'FNA100 named argument should not use **', type(self)
-        # yield 1, 1,  'FNA100 named argument should not use **', type(self)
+        # for line, col in visitor.problems:
+        #     yield line, col, 'X1 Error', type(self)
+        yield 1, 1,  'X1 Error', type(self)
