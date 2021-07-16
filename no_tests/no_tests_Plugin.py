@@ -53,6 +53,7 @@ class Visitor(ast.NodeVisitor):
         print('Node type: Str and fields: ', node._fields)
 
 
+
 class Plugin:
     name = __name__
     version = importlib_metadata.version(__name__)
@@ -63,5 +64,6 @@ class Plugin:
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         visitor = Visitor()
         visitor.visit(self._tree)
+        print(visitor.problems)
         for line, col, error_msg in visitor.problems:
             yield line, col, error_msg, type(self)
