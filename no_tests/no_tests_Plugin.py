@@ -21,7 +21,9 @@ class Visitor(ast.NodeVisitor):
         self.problems: List[Tuple[int, int, String]] = []
 
     def visit_Import(self, node):
-        print("Import visited")
+        # Testing for csv module use
+        self.problems.append((1, 1, "No CSV detected"))
+
         self.generic_visit(node)
 
     def visit_ImportFrom(self, node):
@@ -29,7 +31,7 @@ class Visitor(ast.NodeVisitor):
         self.generic_visit(node)
 
     def visit_Assign(self, node):
-        print('Node type: Assign and fields: ', node._fields)
+        print('Node type: Assign and fields: ', node._fields[0])
         self.generic_visit(node)
 
     def visit_BinOp(self, node):
