@@ -1,3 +1,0 @@
-[flake8.extension]
-X1 = COMSC_Plugin:Plugin
-
