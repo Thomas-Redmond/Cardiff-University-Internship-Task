@@ -12,8 +12,8 @@ else:
     import importlib.metadata as importlib_metadata
 
 class Visitor(ast.NodeVisitor):
-    def _init__(self) -> None:
-        self.problems: List[Tuple[int, int, String]] = []
+    def __init__(self) -> None:
+        self.problems: List[Tuple[int, int]] = []
 
 
 class Plugin:
@@ -21,7 +21,7 @@ class Plugin:
     version = importlib_metadata.version(__name__)
 
     def __init__(self, tree: ast.AST) -> None:
-        slef._tree = tree
+        self._tree = tree
 
     def run(self) -> Generator[Tuple[int, int, Type[Any]], None, None]:
         visitor = Visitor()
