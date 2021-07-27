@@ -10,6 +10,7 @@ else:
 import reportError # place to record errors
 import AST_Router # Handles AST navigation for AST errors
 import Unit_Testing # handles "PyTest" style errors
+import Squash
 
 class Plugin:
     name = __name__
