@@ -1,4 +1,6 @@
 import sys
+import ast
+
 if sys.version_info < (3, 8):
     import importlib_metadata
 else:
@@ -7,3 +9,13 @@ else:
 class Plugin:
     name = __name__
     version = importlib_metadata.version(__name__)
+
+    def __init__(self, tree: ast.AST):
+        self._tree = tree
+
+    def run(self):
+        """
+        Begin testing the program
+
+        """
+        return
