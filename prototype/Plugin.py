@@ -6,8 +6,10 @@ if sys.version_info < (3, 8):
 else:
     import importlib.metadata as importlib_metadata
 
-import AST_Router
-import reportError
+# importing code I have written
+import reportError # place to record errors
+import AST_Router # Handles AST navigation for AST errors
+import Unit_Testing # handles "PyTest" style errors
 
 class Plugin:
     name = __name__
