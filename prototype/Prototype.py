@@ -15,6 +15,13 @@ class Visitor(ast.NodeVisitor):
     def __init__(self) -> None:
         self.problems: List[Tuple[int, int]] = []
 
+    def visit_Call(self, node: ast.Call) -> None:
+        for functionName in node.name:
+            if item == "f":
+                
+        self.generic_visit(node)
+
+
 
 class Plugin:
     name = __name__
