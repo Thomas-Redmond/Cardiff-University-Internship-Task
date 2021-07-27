@@ -6,9 +6,14 @@ Default = Fail
 
 """
 
-import Squash
+from prototype import Squash # Relative import
 
-def test_isFloat():
-    return
+try:
+    variableReturned = Squash.winProbability()
+    if variableReturned.type() == "float" or variableReturned.type() == "int":
+        print("Success")
+    else:
+        print("Test Failed")
 
-def test_isInteger():
+except:
+    print("Unexpected Error")
