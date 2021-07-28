@@ -8,17 +8,21 @@ class P703(PluginError):
 
     def __init__(self, Type, Code, Text, reportHere):
         super.__init__(Type, Code, Text, reportHere)
+        self._Type = "Plugin Error"
+        self._Code = 703
+        self._Text = "winProbability must return a number"
+
 
     def run():
     # Function Override
     try:
         variableReturned = Squash.winProbability()
         if variableReturned.type() == "float" or variableReturned.type() == "int":
-            print("Success")
+            self.success()
         else:
-            print("Test Failed")
+            self.fail()
 
     except:
-        print("Unexpected Error")
+        print("Unexpected Error. Test Aborted")
 
     return

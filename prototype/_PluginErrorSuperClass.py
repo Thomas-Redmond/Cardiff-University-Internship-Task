@@ -1,6 +1,6 @@
 class PluginError:
-    self._Type = None
-    self._Code = None
+    self._Type = ""
+    self._Code = ""
     self._Text = ""
 
     def __init__(self, Type, Code, Text, reportHere):
@@ -19,8 +19,7 @@ class PluginError:
         return
 
     def fail(self):
-
-        return
+        self._reportHere.([0, 0, self._Type + ": " + self._Code + ": " + self._Text])
 
     def displayAll(self):
         """
