@@ -6,14 +6,13 @@ Default = Fail
 
 class P703(PluginError):
 
-    def __init__(self, Type, Code, Text, reportHere):
-        super.__init__(Type, Code, Text, reportHere)
-        self._Type = "Plugin Error"
-        self._Code = 703
+    def __init__(self, reportHere):
+        super.__init__(reportHere)
+        self._Code = "P703"
         self._Text = "winProbability must return a number"
 
 
-    def run():
+    def run(self):
     # Function Override
     try:
         variableReturned = Squash.winProbability()
@@ -23,6 +22,6 @@ class P703(PluginError):
             self.fail()
 
     except:
-        print("Unexpected Error. Test Aborted")
+        print(f"{self._Code} Test Aborted due to unexpected error")
 
     return

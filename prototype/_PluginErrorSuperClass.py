@@ -1,13 +1,9 @@
 class PluginError:
-    self._Type = ""
+    self._Type = "Plugin Error"
     self._Code = ""
     self._Text = ""
 
-    def __init__(self, Type, Code, Text, reportHere):
-        # Pass Type of error, error code, and descriptive text as parameters
-        self._Type = Type
-        self._Code = Code
-        self._Text = Text
+    def __init__(self, reportHere):
         self._reportHere = reportHere
 
 
