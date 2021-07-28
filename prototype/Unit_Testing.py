@@ -1,3 +1,6 @@
+import Squash
+from PluginErrors import P703
+
 
 class Controller:
 
@@ -7,8 +10,6 @@ class Controller:
         self._reportHere = errorReporter
         self._testsToRun = []
 
-    def loadTests(self):
-        return
-
     def run(self):
+        P703.run()
         return

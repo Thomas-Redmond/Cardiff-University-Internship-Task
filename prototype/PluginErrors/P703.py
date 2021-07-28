@@ -1,19 +1,24 @@
 """
-
 winProbability function must return number.
 Positive result if Float / Integer returned.
 Default = Fail
-
 """
 
-from ... import Squash # Relative import
+class P703(PluginError):
 
-try:
-    variableReturned = Squash.winProbability()
-    if variableReturned.type() == "float" or variableReturned.type() == "int":
-        print("Success")
-    else:
-        print("Test Failed")
+    def __init__(self, Type, Code, Text, reportHere):
+        super.__init__(Type, Code, Text, reportHere)
 
-except:
-    print("Unexpected Error")
+    def run():
+    # Function Override
+    try:
+        variableReturned = Squash.winProbability()
+        if variableReturned.type() == "float" or variableReturned.type() == "int":
+            print("Success")
+        else:
+            print("Test Failed")
+
+    except:
+        print("Unexpected Error")
+
+    return
