@@ -22,13 +22,14 @@ class Plugin:
         """
 
         self._tree = tree
-        self._reportError = reportError()
-        self._routerAST = AST_Router(self._reportError)
-        self._testUnit = Unit_Testing(self._reportError)
+        self._reportError = reportError.Reporter()
+        self._routerAST = AST_Router.Router(self._reportError)
+        self._testUnit = Unit_Testing.Controller(self._reportError)
 
     def run(self):
         """
         Begin testing the program
 
         """
+        self._routerAST.visit(self._tree) # will send AST to begin traversal
         return

@@ -1,5 +1,5 @@
 
-class Unit_tester:
+class Controller:
 
     def __init__(self, errorReporter):
         # pass Error_Reporter instance by reference

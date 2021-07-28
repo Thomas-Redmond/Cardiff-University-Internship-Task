@@ -6,7 +6,7 @@ Default = Fail
 
 """
 
-from prototype import Squash # Relative import
+from ... import Squash # Relative import
 
 try:
     variableReturned = Squash.winProbability()
