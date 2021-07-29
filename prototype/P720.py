@@ -2,6 +2,8 @@
 P720: Must use the csv module
 """
 import sys
+import Squash
+from _PluginErrorSuperClass import PluginError
 
 class P720(PluginError):
 

@@ -3,6 +3,8 @@ winProbability function must return number.
 Positive result if Float / Integer returned.
 Default = Fail
 """
+import Squash
+from _PluginErrorSuperClass import PluginError
 
 class P703(PluginError):
 

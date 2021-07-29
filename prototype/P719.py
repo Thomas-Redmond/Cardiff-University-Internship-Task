@@ -1,6 +1,8 @@
 """
 Don't use Global
 """
+import Squash
+from _PluginErrorSuperClass import PluginError
 
 class P719(PluginError):
 
@@ -11,7 +13,7 @@ class P719(PluginError):
 
     def run(self):
         try:
-            if len(is_global) == 0:
+            if len(Squash.is_global) == 0:
                 self.fail()
             else:
                 self.success()

@@ -12,10 +12,13 @@ class PluginError:
         return
 
     def success(self):
+        print(f"{self._Code} Success")
         return
 
     def fail(self):
         self._reportHere.([0, 0, self._Type + ": " + self._Code + ": " + self._Text])
+        print(f"{self._Code} Failed")
+        return
 
     def displayAll(self):
         """
