@@ -17,7 +17,7 @@ class P711(PluginError):
             data = Squash.readCSV("data.csv")
             for row in data:
                 for item in row:
-                    if item.isType("Float") or item.isType("Integer"):
+                    if type(item) == 'float' or type(item) == 'int':
                         # skip
                         pass
                     else:
