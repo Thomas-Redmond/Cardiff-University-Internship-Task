@@ -1,5 +1,12 @@
 import Squash
-from PluginErrors import P703
+import P703
+import P704
+import P709
+import P710
+import P711
+import P712
+import P719
+import P720
 
 
 class Controller:
@@ -11,5 +18,9 @@ class Controller:
         self._testsToRun = []
 
     def run(self):
-        P703.run()
+        test_703 = P703(self._reportHere)
+        test_703.run()
+        errorReporter.displayRecord()
+
+
         return

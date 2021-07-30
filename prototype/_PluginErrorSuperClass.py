@@ -1,7 +1,4 @@
 class PluginError:
-    self._Type = "Plugin Error"
-    self._Code = ""
-    self._Text = ""
 
     def __init__(self, reportHere):
         self._reportHere = reportHere
@@ -16,7 +13,7 @@ class PluginError:
         return
 
     def fail(self):
-        self._reportHere.([0, 0, self._Type + ": " + self._Code + ": " + self._Text])
+        self._reportHere.setRecord([0, 0, self._Type + ": " + self._Code + ": " + self._Text])
         print(f"{self._Code} Failed")
         return
 

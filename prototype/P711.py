@@ -21,6 +21,7 @@ class P711(PluginError):
                 for item in row:
                     if item.isType("Float") or item.isType("Integer"):
                         # skip
+                        pass
                     else:
                         self.fail()
                         return

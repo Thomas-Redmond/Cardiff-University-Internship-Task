@@ -19,13 +19,11 @@ class P704(PluginError):
                 if (Squash.winProbability(i, 1).isType("Float")):
                     self.success()
                     i = 11
-                elif(
-                    not Squash.winProbability(i, 1).isType("Float") and
-                    i == 10):
+                elif not Squash.winProbability(i, 1).isType("Float") and i == 10:
                     self.fail()
                 else:
                     # loop back round
-
+                    pass
         except:
             print(f"{self._Code} Test Aborted due to unexpected error")
         return

@@ -15,15 +15,15 @@ class P703(PluginError):
 
 
     def run(self):
-    # Function Override
-    try:
-        variableReturned = Squash.winProbability()
-        if variableReturned.type() == "float" or variableReturned.type() == "int":
-            self.success()
-        else:
-            self.fail()
+        # Function Override
+        try:
+            variableReturned = Squash.winProbability()
+            if variableReturned.type() == "float" or variableReturned.type() == "int":
+                self.success()
+            else:
+                self.fail()
 
-    except:
-        print(f"{self._Code} Test Aborted due to unexpected error")
+        except:
+            print(f"{self._Code} Test Aborted due to unexpected error")
 
-    return
+        return
