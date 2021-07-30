@@ -12,16 +12,16 @@ class P710(PluginError):
         self._Code = "P710"
         self._Text = "Number of Rows read from csv is incorrect"
 
-    def run(self, filename):
+    def run(self):
         try:
-            desired_row_num = 10
+            desired_row_num = 2
 
-            data = Squash.readCSV(filename)
+            data = Squash.readCSV("data.csv")
             if len(data) == desired_row_num:
                 self.success()
             else:
                 self.fail()
-        except:
+        except Exception as e:
             print(f"{self._Code} Test Aborted due to unexpected error")
-
-        return
+            print(e)
+            self.fail()

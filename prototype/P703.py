@@ -16,13 +16,14 @@ class P703(PluginError):
 
     def run(self):
         # Function Override
-        variableReturned = Squash.winProbability(2, 1)
-        if isinstance(variableReturned, float) or isinstance(variableReturned, int):
-            self.success()
-        else:
+        try:
+            variableReturned = Squash.winProbability(2, 1)
+            if isinstance(variableReturned, float) or isinstance(variableReturned, int):
+                self.success()
+            else:
+                self.fail()
+
+        except Exception as e:
+            print(f"{self._Code} Test Aborted due to unexpected error")
+            print(e)
             self.fail()
-
-        #except:
-            #print(f"{self._Code} Test Aborted due to unexpected error")
-
-        return

@@ -18,7 +18,7 @@ class P709(PluginError):
                 self.success()
             else:
                 self.fail()
-        except:
+        except Exception as e:
             print(f"{self._Code} Test Aborted due to unexpected error")
-
-        return
+            print(e)
+            self.fail()

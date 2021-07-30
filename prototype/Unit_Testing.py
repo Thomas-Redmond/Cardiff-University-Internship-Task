@@ -15,7 +15,7 @@ class Controller:
         # allows this class to utilise its functions
         self._reportHere = errorReporter
         self._testsToRun = [
-            P703_Test, P704_Test, P709_Test, # P710_Test, P711_Test, P712_Test,
+            P703_Test, P704_Test, P709_Test, P710_Test, P711_Test, P712_Test,
              P719_Test, P720_Test]
 
     def run(self):
