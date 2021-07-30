@@ -6,7 +6,8 @@ def test_init():
     u = Unit_Testing.Controller(r)
     assert u._reportHere == r
 
-def test_var_testsToRun():
+def test_run_method():
     r = reportError.Reporter()
     u = Unit_Testing.Controller(r)
-    assert u._testsToRun == []
+    u.run()
+    assert r.getRecord() == 0

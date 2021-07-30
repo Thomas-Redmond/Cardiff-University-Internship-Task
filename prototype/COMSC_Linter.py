@@ -31,5 +31,8 @@ class Plugin:
         Begin testing the program
 
         """
-        self._routerAST.visit(self._tree) # will send AST to begin traversal
+        #self._routerAST.visit(self._tree) # will send AST to begin traversal
+
+        
+
         return

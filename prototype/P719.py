@@ -7,7 +7,7 @@ from _PluginErrorSuperClass import PluginError
 class P719(PluginError):
 
     def __init__(self, reportHere):
-        super.__init__(reportHere)
+        super().__init__(reportHere)
         self._Code = "P719"
         self._Text = "Do not use Global variables"
 

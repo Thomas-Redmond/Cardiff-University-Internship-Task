@@ -7,7 +7,7 @@ from _PluginErrorSuperClass import PluginError
 class P704(PluginError):
 
     def __init__(self, reportHere):
-        super.__init__(reportHere)
+        super().__init__(reportHere)
         self._Code = "P704"
         self._Text = "Do not round inside the function"
 
