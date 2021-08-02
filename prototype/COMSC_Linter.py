@@ -7,7 +7,7 @@ else:
     import importlib.metadata as importlib_metadata
 
 # importing code I have written
-import reportError # place to record errors
+import reportError# place to record errors
 import AST_Router # Handles AST navigation for AST errors
 import Unit_Testing # handles "PyTest" style errors
 import Squash
@@ -31,8 +31,11 @@ class Plugin:
         Begin testing the program
 
         """
-        #self._routerAST.visit(self._tree) # will send AST to begin traversal
 
-        
+        #self._routerAST.visit(self._tree) # will send AST to begin traversal
+        self._testUnit.run()
+
+        self._reportError.displayRecord()
+
 
         return

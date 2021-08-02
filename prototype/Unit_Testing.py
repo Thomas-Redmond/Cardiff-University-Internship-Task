@@ -23,6 +23,5 @@ class Controller:
         for test in self._testsToRun:
             instance = test(self._reportHere)
             instance.run()
-            self._reportHere.displayRecord()
 
         return
