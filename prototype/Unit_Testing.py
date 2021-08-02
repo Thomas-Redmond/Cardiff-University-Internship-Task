@@ -5,7 +5,7 @@ from P709 import P709 as P709_Test
 from P710 import P710 as P710_Test
 from P711 import P711 as P711_Test
 from P712 import P712 as P712_Test
-from P719 import P719 as P719_Test
+#from P719 import P719 as P719_Test
 from P720 import P720 as P720_Test
 
 class Controller:
@@ -15,14 +15,12 @@ class Controller:
         # allows this class to utilise its functions
         self._reportHere = errorReporter
         self._testsToRun = [
-            P703_Test, P704_Test, P709_Test, P710_Test, P711_Test, P712_Test,
-             P719_Test, P720_Test]
+            P703_Test, P704_Test, P709_Test, P710_Test, P711_Test, P712_Test, P720_Test]
 
     def run(self):
 
         for test in self._testsToRun:
             instance = test(self._reportHere)
-            print(f'{instance._Code} test running' )
             instance.run()
 
         return

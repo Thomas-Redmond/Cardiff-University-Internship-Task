@@ -14,7 +14,7 @@ class P712(PluginError):
 
     def run(self):
         try:
-            desired_col_num = 3
+            desired_col_num = 2 # Modify to fit required function
 
             data = Squash.readCSV("data.csv")
             for row in data:

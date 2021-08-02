@@ -17,8 +17,7 @@ class P711(PluginError):
             data = Squash.readCSV("data.csv")
             for row in data:
                 for item in row:
-                    if type(item) == 'float' or type(item) == 'int':
-                        # skip
+                    if isinstance(item, (int, float, complex)):
                         pass
                     else:
                         self.fail()
