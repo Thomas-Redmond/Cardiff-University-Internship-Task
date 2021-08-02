@@ -16,10 +16,10 @@ class P704(PluginError):
         # fails test if no Float values are found in all ten attempts
         try:
             for i in range(10):
-                if (Squash.winProbability(i, 1).isType("Float")):
+                if (type(Squash.winProbability(i, 1)) == "float"):
                     self.success()
                     i = 11
-                elif not Squash.winProbability(i, 1).isType("Float") and i == 10:
+                elif (type(Squash.winProbability(i, 1)) != "float") and i == 10:
                     self.fail()
                 else:
                     # loop back round

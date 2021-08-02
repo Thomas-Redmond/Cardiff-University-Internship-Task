@@ -22,6 +22,7 @@ class Controller:
 
         for test in self._testsToRun:
             instance = test(self._reportHere)
+            print(f'{instance._Code} test running' )
             instance.run()
 
         return
