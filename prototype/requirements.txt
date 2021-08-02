@@ -4,6 +4,7 @@ attrs==21.2.0
 colorama==0.4.4
 flake8==3.9.2
 iniconfig==1.1.1
+matplotlib==3.4.2
 mccabe==0.6.1
 packaging==20.9
 pluggy==0.13.1

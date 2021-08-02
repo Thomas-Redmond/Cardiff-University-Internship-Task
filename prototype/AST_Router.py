@@ -1,6 +1,6 @@
 import ast
 
-class AST_Router(ast.NodeVisitor):
+class Router(ast.NodeVisitor):
 
     def __init__(self, errorReporter):
         # Takes instance of Error_Reporter passed by reference
