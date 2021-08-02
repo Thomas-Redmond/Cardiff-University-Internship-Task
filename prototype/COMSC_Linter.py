@@ -39,6 +39,6 @@ class Plugin:
 
         # self._routerAST.visit(self._tree) # will send AST to begin traversal
         self._testUnit.run()
-        self._reportError.displayRecord()
-        yield 1, 1,  'X1 Error', 5 # issue 5, yield blocks a NoneType iterable error
+        for [line, col, error] in self._reportError._record:
+             yield line, col, error, "Plugin Error"
         return
