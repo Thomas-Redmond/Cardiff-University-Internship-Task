@@ -18,7 +18,10 @@ class Controller:
             P703_Test, P704_Test, P709_Test, P710_Test, P711_Test, P712_Test, P720_Test]
 
     def run(self):
-
+        """
+        For every test in self._testsToRun create an instance and run that test.
+        Errors will be recorded in the instance of Reporter passed to this class upon instantiation.
+        """
         for test in self._testsToRun:
             instance = test(self._reportHere)
             instance.run()

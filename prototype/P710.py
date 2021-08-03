@@ -13,6 +13,9 @@ class P710(PluginError):
         self._Text = "Number of Rows read from csv is incorrect"
 
     def run(self):
+        """
+        Checks the output of Squash.readCSV has the correct number of rows
+        """
         try:
             desired_row_num = 2
 

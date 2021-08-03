@@ -13,6 +13,9 @@ class P709(PluginError):
         self._Text = "Question asked for a different function name"
 
     def run(self):
+        """
+        Checks that the function game exists
+        """
         try:
             if "game" in dir(Squash):
                 self.success()

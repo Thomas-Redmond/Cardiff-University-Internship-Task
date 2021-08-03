@@ -16,9 +16,12 @@ class P703(PluginError):
 
     def run(self):
         # Function Override
+        """
+        Tests that winProbability returns an integer, float or complex value
+        """
         try:
             variableReturned = Squash.winProbability(2, 1)
-            if isinstance(variableReturned, float) or isinstance(variableReturned, int):
+            if isinstance(variableReturned, (int, float, complex)):
                 self.success()
             else:
                 self.fail()

@@ -33,8 +33,8 @@ class Plugin:
 
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         """
-        Begin testing the program
-
+        Starts the Plugin.
+        Runs the various tests and yields the detected errors.
         """
 
         # self._routerAST.visit(self._tree) # will send AST to begin traversal
