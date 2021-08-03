@@ -13,6 +13,9 @@ class P720(PluginError):
         self._Text = "Must use the csv module"
 
     def run(self):
+        """
+        Checks that csv module has been imported
+        """
 
         try:
             if "csv" not in sys.modules:

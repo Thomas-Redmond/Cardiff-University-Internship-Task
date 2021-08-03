@@ -13,6 +13,9 @@ class P712(PluginError):
         self._Text = "Checks dimension of returned matrix to see if desired size"
 
     def run(self):
+        """
+        Checks that every row has the desired number of columns
+        """
         try:
             desired_col_num = 2 # Modify to fit required function
 

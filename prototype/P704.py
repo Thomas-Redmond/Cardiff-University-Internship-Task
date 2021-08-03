@@ -12,6 +12,11 @@ class P704(PluginError):
         self._Text = "Do not round inside the function"
 
     def run(self):
+        """
+        Tests that winProbability returns a unrounded value
+        Checks ten times using various parameters.
+        If float found then success
+        """
         # Runs 10 times, checking against a vareity of parameters
         # fails test if no Float values are found in all ten attempts
         try:

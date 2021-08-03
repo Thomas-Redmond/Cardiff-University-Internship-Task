@@ -9,10 +9,17 @@ class PluginError:
         return
 
     def success(self):
+        """
+        [Temp] Informs user of success
+        """
         print(f"{self._Code} Success")
         return
 
     def fail(self):
+        """
+        Appends details of failed test to Record in class Reporter
+        [Temp] Notifies user of failure
+        """
         self._reportHere.setRecord(0, 0, self._Code + ": " + self._Text)
         print(f"{self._Code} Failed")
         return

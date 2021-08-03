@@ -13,6 +13,9 @@ class P711(PluginError):
         self._Text = "Each item in the Tuple should be a number"
 
     def run(self):
+        """
+        Checks that each item returned by Squash.readCSV is a number
+        """
         try:
             data = Squash.readCSV("data.csv")
             for row in data:

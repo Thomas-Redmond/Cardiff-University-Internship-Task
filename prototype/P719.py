@@ -12,6 +12,9 @@ class P719(PluginError):
         self._Text = "Do not use Global variables"
 
     def run(self):
+        """
+        Tests for global variables in Squash [Code broken]
+        """
         try:
             if len(Squash.is_global) == 0:
                 self.fail()
