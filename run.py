@@ -1,6 +1,6 @@
 import sys
-import os
 import ast
+import os
 
 if sys.version_info < (3, 8):
     import importlib_metadata
@@ -12,24 +12,22 @@ from typing import Tuple
 from typing import Type
 from typing import Any
 
+
 # importing code I have written
-import reportError# place to record errors
-import AST_Router # Handles AST navigation for AST errors
-import Unit_Testing # handles "PyTest" style errors
+sys.path.append(os.getcwd())   # adding to path for easy import
+import src.reportError as re    # place to record errors
+import src.AST_Router as ar     # Handles AST navigation for AST errors
+import src.Unit_Testing as ut   # handles "PyTest" style errors
 
 class Plugin:
     name = __name__
     version = importlib_metadata.version(__name__)
 
     def __init__(self, tree: ast.AST):
-        """
-
-        """
-
         self._tree = tree
-        self._reportError = reportError.Reporter()
-        self._routerAST = AST_Router.Router(self._reportError)
-        self._testUnit = Unit_Testing.Controller(self._reportError)
+        self._reportError = re.Reporter()
+        self._routerAST = ar.Router(self._reportError)
+        self._testUnit = ut.Controller(self._reportError)
 
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         """
