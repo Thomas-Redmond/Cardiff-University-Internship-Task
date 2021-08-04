@@ -1,8 +1,16 @@
 """
 Checks dimensions of returned matrix has handled bad column
 """
+import sys
+import os
 
-import Squash
+filename = sys.argv[1]
+if ".py" in filename:
+    filename = filename[0:-3]
+address = os.getcwd()
+sys.path.append(address)
+Squash = __import__(filename)
+
 from _PluginErrorSuperClass import PluginError
 
 class P712(PluginError):

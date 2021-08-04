@@ -1,8 +1,16 @@
 """
 Checks each data item is a number
 """
+import sys
+import os
 
-import Squash
+filename = sys.argv[1]
+if ".py" in filename:
+    filename = filename[0:-3]
+address = os.getcwd()
+sys.path.append(address)
+Squash = __import__(filename)
+
 from _PluginErrorSuperClass import PluginError
 
 class P711(PluginError):

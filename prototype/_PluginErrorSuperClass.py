@@ -3,7 +3,6 @@ class PluginError:
     def __init__(self, reportHere):
         self._reportHere = reportHere
 
-
     def run(self):
         # Overridden by Child class
         return

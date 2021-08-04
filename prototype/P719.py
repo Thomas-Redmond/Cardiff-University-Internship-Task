@@ -1,7 +1,16 @@
 """
 Don't use Global
 """
-import Squash
+import sys
+import os
+
+filename = sys.argv[1]
+if ".py" in filename:
+    filename = filename[0:-3]
+address = os.getcwd()
+sys.path.append(address)
+Squash = __import__(filename)
+
 from _PluginErrorSuperClass import PluginError
 
 class P719(PluginError):

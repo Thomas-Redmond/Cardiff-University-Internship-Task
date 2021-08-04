@@ -2,7 +2,15 @@
 P720: Must use the csv module
 """
 import sys
-import Squash
+import os
+
+filename = sys.argv[1]
+if ".py" in filename:
+    filename = filename[0:-3]
+address = os.getcwd()
+sys.path.append(address)
+Squash = __import__(filename)
+
 from _PluginErrorSuperClass import PluginError
 
 class P720(PluginError):
