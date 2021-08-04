@@ -1,3 +1,24 @@
+import sys
+import os
+
+filename = sys.argv[1]
+address = ''
+try:
+    if ".py" in filename:
+        filename = filename[0:-3]
+    if filename[0:1] == "./":
+        filename = filename[2:]
+    if "/" in filename:
+        index = filename.rfind("/")
+        address = filename[0:index]
+        filename = filename[index + 1: ]
+    sys.path.append(address)
+    Squash = __import__(filename)
+except ModuleNotFoundError:
+    print(f"{filename} not found, cannot continue.")
+    raise ModuleNotFoundError
+
+
 class PluginError:
 
     def __init__(self, reportHere):
