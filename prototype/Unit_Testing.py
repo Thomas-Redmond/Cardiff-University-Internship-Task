@@ -1,4 +1,3 @@
-import Squash
 from P703 import P703 as P703_Test
 from P704 import P704 as P704_Test
 from P709 import P709 as P709_Test
