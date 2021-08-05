@@ -1,27 +1,17 @@
-"""
-winProbability function must return number.
-Positive result if Float / Integer returned.
-Default = Fail
-"""
-import sys
+import src.Pxxx._PluginErrorSuperClass as PESC
+
 import os
+import sys
 filename = sys.argv[1]
-if ".py" in filename:
-    filename = filename[0:-3]
-address = os.getcwd()
-if filename[0:1] == "./":
-    filename = filename[2:]
-if "/" in filename:
-    index = filename.rfind("/")
-    address = address + filename[0:index]
-    filename = filename[index + 1: ]
-sys.path.append(address)
-Squash = __import__(filename)
+if os.path.exists(filename):
+    pass
+else:
+    raise ModuleNotFoundError
+address = filename[0 : filename.rfind("\\")]
+sys.path.insert(0, address)
+Squash = __import__(filename[-9 :-3])
 
-
-from _PluginErrorSuperClass import PluginError
-
-class P703(PluginError):
+class P703(PESC.PluginError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)

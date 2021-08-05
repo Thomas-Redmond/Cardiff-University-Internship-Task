@@ -1,3 +1,6 @@
+import sys
+import os
+
 class PluginError:
 
     def __init__(self, reportHere):
