@@ -3,7 +3,6 @@ class Reporter:
     def __init__(self):
         self._record = [] # format [[line, col, error text], [line, col, error text]]
         self._lenRecord = 1
-        self.setRecord(0, 0, "Example Error") # [Temp]
 
     def getRecord(self):
         return self._record
