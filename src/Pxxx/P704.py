@@ -1,7 +1,7 @@
-import src.Pxxx._PluginErrorSuperClass as PESC
+from src.Pxxx._PluginErrorSuperClass import Squash
+from src.Pxxx._PluginErrorSuperClass import PluginError
 
-
-class P704(PESC.PluginError):
+class P704(PluginError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
