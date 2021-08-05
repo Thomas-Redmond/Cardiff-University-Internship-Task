@@ -1,6 +1,5 @@
 import sys
 import ast
-import os
 
 if sys.version_info < (3, 8):
     import importlib_metadata
