@@ -1,4 +1,13 @@
+import sys
+import os
 import src.Pxxx._PluginErrorSuperClass as PESC
+
+try:
+    filename = sys.argv[1]
+    is
+except:
+
+
 
 class P703(PESC.PluginError):
 
