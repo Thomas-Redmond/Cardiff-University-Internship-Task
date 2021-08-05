@@ -1,30 +1,5 @@
 import sys
 import os
-import importlib.util
-
-
-def importUserFile():
-    """
-    Imports Squash.py using parameter given in flake8 run command
-    Presumes format: flake8 E:/doc/.../Squash.py
-    Isolates filename and address.
-    Adds address to path and imports filename
-    """
-    try:
-        filename = sys.argv[1]
-        if os.path.exists(filename):
-            index = filename.rfind("/")
-            address = filename[0 : index ]
-            filename = filename[index + 1 : ]
-
-        else:
-            raise ModuleNotFoundError
-        spec = importlib.util.spec_from_file_location(filename, address)
-        Squash = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(Squash)
-        return
-    except Exception as e:
-        print(e)
 
 class PluginError:
 

@@ -14,7 +14,6 @@ from typing import Any
 
 
 # importing code I have written
-sys.path.append(os.getcwd())   # adding to path for easy import
 import src.reportError as re    # place to record errors
 import src.AST_Router as ar     # Handles AST navigation for AST errors
 import src.Unit_Testing as ut   # handles "PyTest" style errors
