@@ -6,7 +6,7 @@ class P712(PluginError):
     def __init__(self, reportHere):
         super().__init__(reportHere)
         self._Code = "P712"
-        self._Text = "Checks dimension of returned matrix to see if desired size"
+        self._Text = "The number of columns in the returned matrix is incorrect"
 
     def run(self):
         """

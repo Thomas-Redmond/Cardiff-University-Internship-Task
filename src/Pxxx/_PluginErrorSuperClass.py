@@ -13,6 +13,7 @@ class PluginError:
 
     def __init__(self, reportHere):
         self._reportHere = reportHere
+        self._Loc = [0, 0]
 
     def run(self):
         # Overridden by Child class
@@ -30,7 +31,7 @@ class PluginError:
         Appends details of failed test to Record in class Reporter
         [Temp] Notifies user of failure
         """
-        self._reportHere.setRecord(0, 0, self._Code + ": " + self._Text)
+        self._reportHere.setRecord(self._Loc[0], self._Loc[1], self._Code + ": " + self._Text)
         print(f"{self._Code} Failed")
         return
 
@@ -41,25 +42,5 @@ class PluginError:
         print(f'Type: {self._Type}')
         print(f'Code: {self._Code}')
         print(f'Text: {self._Text}')
+        print(f'Loc: {self._Loc[0], self._Loc[1]}')
         return
-
-    def setType(self, Type):
-        self._Type = Type
-        return
-
-    def getType(self):
-        return self._Type
-
-    def setCode(self, Code):
-        self._Code = Code
-        return
-
-    def getCode(self):
-        return self._Code
-
-    def setText(self, Text):
-        self._Text = Text
-        return
-
-    def getText(self):
-        return self._Text

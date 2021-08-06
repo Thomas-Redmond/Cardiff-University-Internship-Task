@@ -10,6 +10,7 @@ class P705(PluginError):
 
     def run(self):
         try:
+            pass
         except Exception as e:
             print(f"{self._Code} Test Aborted due to unexpected error")
             print(e)

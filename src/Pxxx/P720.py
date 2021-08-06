@@ -8,7 +8,7 @@ class P720(PluginError):
         super().__init__(reportHere)
         self._Code = "P720"
         self._Text = "Must use the csv module"
-
+        
     def run(self):
         """
         Checks that csv module has been imported
