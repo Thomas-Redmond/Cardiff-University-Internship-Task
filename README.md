@@ -1,6 +1,26 @@
 # Cardiff_Coursework_Support
 
-Provides feedback to first-year students for the module "Problem Solving With Python" in CS, during development. Examples such as "no need for global keyword", "return answer from function as a number not a string"
+Provides feedback to first-year students for the module "Problem Solving With Python" in CS, during development.  
+Examples such as "no need for global keyword", "return answer from function as a number not a string"
+
+
+# Installing Plugin for use
+Creates virtual environment  
+*py -m venv env*  
+
+Activates Virtual Environment
+*.\env\Scripts\activate*  
+
+Install Plugin Requirements  
+*py -m pip install -r local/path/to/plugin/requirements.txt*  
+
+Install Plugin  
+*python local/path/to/plugin/setup.py install*    
+
+# Using Plugin
+*flake8 filename.py*  
+Runs flake8 on the designated file, performing all Flake8 and Plugin checks.
+Currently set up (v0.1.2) to always fail on custom plugin check.
 
 # Development Virtual Environment Reminder
 
@@ -24,11 +44,3 @@ Stops venv
 
 This will need to be redone with changes to setup.cfg
 The plugin can be used at this stage.
-
-# Installing Plugin for use
-*python setup.py install*  
-
-# Using Plugin
-*flake8 filename.py*  
-Runs flake8 on the designated file, performing all Flake8 and Plugin checks.
-Currently set up (v0.1.2) to always fail on custom plugin check.
