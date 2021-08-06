@@ -6,7 +6,8 @@ class P709(PluginError):
     def __init__(self, reportHere):
         super().__init__(reportHere)
         self._Code = "P709"
-        self._Text = "Question asked for a different function name"
+        self._Text = "Function game is missing"
+
 
     def run(self):
         """

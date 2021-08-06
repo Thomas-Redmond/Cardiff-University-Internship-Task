@@ -6,7 +6,7 @@ class P711(PluginError):
     def __init__(self, reportHere):
         super().__init__(reportHere)
         self._Code = "P711"
-        self._Text = "Each item in the Tuple should be a number"
+        self._Text = "Each item returned in the Tuple should be a number"
 
     def run(self):
         """
