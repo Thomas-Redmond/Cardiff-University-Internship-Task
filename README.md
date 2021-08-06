@@ -20,7 +20,6 @@ Install Plugin
 # Using Plugin
 *flake8 filename.py*  
 Runs flake8 on the designated file, performing all Flake8 and Plugin checks.
-Currently set up (v0.1.2) to always fail on custom plugin check.
 
 # Development Virtual Environment Reminder
 
