@@ -15,6 +15,10 @@ class Router(ast.NodeVisitor):
         print("Import From visited")
         self.generic_visit(node)
 
+    def visit_FunctionDef(self, node):
+        print(f'Node type: FunctionDef and fields {node._fields}')
+        self.generic_visit()
+
     def visit_Assign(self, node):
         print('Node type: Assign and fields: ', node._fields[0])
         self.generic_visit(node)
@@ -27,12 +31,6 @@ class Router(ast.NodeVisitor):
         print('Node type: Expr and fields: ', node._fields)
         self.generic_visit(node)
 
-    def visit_Num(self,node):
-        print('Node type: Num and fields: ', node._fields)
-
-    def visit_Name(self,node):
-        print('Node type: Name and fields: ', node._fields)
+    def visit_Constant(self,node):
+        print('Node type: Constant and fields: ', node._fields)
         self.generic_visit(node)
-
-    def visit_Str(self, node):
-        print('Node type: Str and fields: ', node._fields)
