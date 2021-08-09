@@ -1,5 +1,6 @@
 import sys
 import ast
+import pathlib
 
 if sys.version_info < (3, 8):
     import importlib_metadata
@@ -11,11 +12,15 @@ from typing import Tuple
 from typing import Type
 from typing import Any
 
-
-# importing code I have written
-import src.reportError as re    # place to record errors
-import src.AST_Router as ar     # Handles AST navigation for AST errors
-import src.Unit_Testing as ut   # handles "PyTest" style errors
+try: # importing code I have written
+    parentDirectory = pathlib.Path(__file__).parent.resolve()
+    parentDirectory = str(parentDirectory)[:-57]
+    sys.path.insert(0, parentDirectory)
+    import src.reportError as re    # place to record errors
+    import src.AST_Router as ar     # Handles AST navigation for AST errors
+    import src.Unit_Testing as ut   # handles "PyTest" style errors
+except Exception as e:
+    print(e)
 
 class Plugin:
     name = __name__
