@@ -26,7 +26,7 @@ Runs flake8 on the designated file, performing all Flake8 and Plugin checks.
 Creates environment in local directory folder called "env", this variable can be changed  
 *py -m venv env*  
 
-Starts venv 
+Starts venv
 *.\env\Scripts\activate*  
 
 Outputs current module requirements being used  
@@ -40,6 +40,8 @@ Stops venv
 
 # Installing Plugin for development environment
 *pip install -e .*  
+
+*flake8 E:\Thomas\Documents\#Python_Developement_Project\Code_reference\Squash\squash.py*
 
 This will need to be redone with changes to setup.cfg
 The plugin can be used at this stage.

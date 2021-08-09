@@ -1,4 +1,6 @@
 import ast
+from src.Axxx.A705 import A705
+
 
 class Router(ast.NodeVisitor):
 
@@ -7,18 +9,14 @@ class Router(ast.NodeVisitor):
         # To pass information by reference at later stages
         self._reportHere = errorReporter
 
-    def visit_Import(self, node):
-        print("Import visited")
-        self.generic_visit(node)
-
-    def visit_ImportFrom(self, node):
-        print("Import From visited")
-        self.generic_visit(node)
-
     def visit_FunctionDef(self, node):
         print(f'Node type: FunctionDef and fields {node._fields}')
-        self.generic_visit()
-
+        if node.name == 'readCSV':
+            newTest = A705(self._reportHere, node)
+        else:
+            pass
+        self.generic_visit(node)
+"""
     def visit_Assign(self, node):
         print('Node type: Assign and fields: ', node._fields[0])
         self.generic_visit(node)
@@ -34,3 +32,13 @@ class Router(ast.NodeVisitor):
     def visit_Constant(self,node):
         print('Node type: Constant and fields: ', node._fields)
         self.generic_visit(node)
+"""
+"""
+    def visit_Import(self, node):
+        print("Import visited")
+        self.generic_visit(node)
+
+    def visit_ImportFrom(self, node):
+        print("Import From visited")
+        self.generic_visit(node)
+"""
