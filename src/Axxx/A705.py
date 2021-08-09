@@ -7,8 +7,11 @@ class A705(astError, ast.NodeVisitor):
         super().__init__(reportHere, node)
         self._Code = "A705"
         self._Text = "Pass the filename as an argument"
-        print("Running")
-        self.generic_visit(node) # visit all child nodes of given node
+        self.visit_FunctionDef(self._node)
+
+    def visit_FunctionDef(self, node):
+        help(node.args.args[0])
+        self.generic_visit(node)
 
     def visit_Assign(self, node):
         print('Node type: Assign and fields: ', node._fields[0])
