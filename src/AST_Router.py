@@ -12,7 +12,7 @@ class Router(ast.NodeVisitor):
     def visit_FunctionDef(self, node):
         print(f'Node type: FunctionDef and fields {node._fields}')
         if node.name == 'readCSV':
-            newTest = P705(self._reportHere, node, node.lineno, node.col_offset)
+            P705_runTest = P705(self._reportHere, node, node.lineno, node.col_offset)
         else:
             pass
         self.generic_visit(node)

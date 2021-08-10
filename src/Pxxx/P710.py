@@ -1,4 +1,7 @@
+from pathlib import Path
+
 from src.Pxxx._PluginErrorSuperClass import Squash
+from src.Pxxx._PluginErrorSuperClass import filename
 from src.Pxxx._PluginErrorSuperClass import PluginError
 
 class P710(PluginError):
@@ -12,14 +15,19 @@ class P710(PluginError):
         """
         Checks the output of Squash.readCSV has the correct number of rows
         """
+        address = Path(filename)
+        address = address.with_name('data.csv')
         try:
             desired_row_num = 2
-
-            data = Squash.readCSV("data.csv")
-            if len(data) == desired_row_num:
-                self.success()
+            if Path.exists(address):
+                data = Squash.readCSV(address)
+                if len(data) == desired_row_num:
+                    self.success()
+                else:
+                    self.fail()
             else:
-                self.fail()
+                raise FileNotFoundError(f"data.csv not found in directory {address}")
+
         except Exception as e:
             print(f"{self._Code} Test Aborted due to unexpected error")
             print(e)
