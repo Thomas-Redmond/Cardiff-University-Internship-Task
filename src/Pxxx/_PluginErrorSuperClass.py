@@ -21,8 +21,7 @@ class PluginError:
         self._reportHere = reportHere
         self._Loc = [0, 0]
 
-    def run(self): pass
-        # Overridden by Child class
+    def run(self): pass # Overridden by Child class
 
     def success(self):
         """

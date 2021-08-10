@@ -16,7 +16,7 @@ class P705(astError, ast.NodeVisitor):
         If at least one, passes test
         """
         try:
-            if len(node.args.args[0].arg) == 1:
+            if len(node.args.args) >= 1: # testing number of parameters is at least 1
                 self.success()
                 # perhaps also test that the parameter name is informative?
             else:
