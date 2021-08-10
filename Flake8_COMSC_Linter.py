@@ -1,6 +1,6 @@
 import sys
 import ast
-import pathlib
+from pathlib import Path
 
 if sys.version_info < (3, 8):
     import importlib_metadata
@@ -13,9 +13,7 @@ from typing import Type
 from typing import Any
 
 try: # importing code I have written
-    parentDirectory = pathlib.Path(__file__).parent.resolve()
-    parentDirectory = str(parentDirectory)[:-57]
-    sys.path.insert(0, parentDirectory)
+    sys.path.insert(0, Path(__file__).parent) # add installation folder to path
     import src.reportError as re    # place to record errors
     import src.AST_Router as ar     # Handles AST navigation for AST errors
     import src.Unit_Testing as ut   # handles "PyTest" style errors

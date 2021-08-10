@@ -32,8 +32,7 @@ class Router(ast.NodeVisitor):
     def visit_Constant(self,node):
         print('Node type: Constant and fields: ', node._fields)
         self.generic_visit(node)
-"""
-"""
+
     def visit_Import(self, node):
         print("Import visited")
         self.generic_visit(node)
