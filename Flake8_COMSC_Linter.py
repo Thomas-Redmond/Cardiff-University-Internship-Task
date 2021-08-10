@@ -38,7 +38,7 @@ class Plugin:
         Runs the various tests and yields the detected errors.
         """
 
-        # self._routerAST.visit(self._tree) # will send AST to begin traversal
+        self._routerAST.visit(self._tree) # will send AST to begin traversal
         self._testUnit.run()
         for [line, col, error] in self._reportError._record:
              yield line, col, error, "Plugin Error"
