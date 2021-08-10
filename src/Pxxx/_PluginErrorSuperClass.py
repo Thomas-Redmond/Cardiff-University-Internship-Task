@@ -1,13 +1,19 @@
-import os
 import sys
-filename = sys.argv[1]
-if os.path.exists(filename):
-    pass
-else:
-    raise ModuleNotFoundError
-address = filename[0 : filename.rfind("\\")]
-sys.path.insert(0, address)
-Squash = __import__(filename[-9 :-3])
+from pathlib import Path
+
+def importModule(filename):
+    # Tests if filename parameter exists given complete address
+    # Raises ModuleNotFoundError otherwise
+    # Adds parent directory to path and returns filename stem
+    if Path.exists(filename):
+        sys.path.insert(0, str(filename.parent))
+        return filename.stem
+    else:
+        raise ModuleNotFoundError(f"Address {filename} was not found")
+
+filename = Path(sys.argv[1])
+Squash = __import__(importModule(filename))
+
 
 class PluginError:
 
