@@ -2,7 +2,7 @@ class Reporter:
 
     def __init__(self):
         self._record = [] # format [[line, col, error text], [line, col, error text]]
-        self._lenRecord = 1
+        self._lenRecord = 0
 
     def getRecord(self):
         return self._record

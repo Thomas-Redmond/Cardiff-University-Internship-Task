@@ -39,7 +39,7 @@ class Plugin:
         """
 
         self._routerAST.visit(self._tree) # will send AST to begin traversal
-        #self._testUnit.run()
+        self._testUnit.run()
         for [line, col, error] in self._reportError._record:
              yield line, col, error, "Plugin Error"
         return

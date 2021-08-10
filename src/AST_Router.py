@@ -1,5 +1,5 @@
 import ast
-from src.Axxx.A705 import A705
+from src.Axxx.P705 import P705
 
 
 class Router(ast.NodeVisitor):
@@ -12,7 +12,7 @@ class Router(ast.NodeVisitor):
     def visit_FunctionDef(self, node):
         print(f'Node type: FunctionDef and fields {node._fields}')
         if node.name == 'readCSV':
-            newTest = A705(self._reportHere, node)
+            newTest = P705(self._reportHere, node, node.lineno, node.col_offset)
         else:
             pass
         self.generic_visit(node)
