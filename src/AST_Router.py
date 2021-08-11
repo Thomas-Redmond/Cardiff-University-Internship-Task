@@ -8,14 +8,21 @@ class Router(ast.NodeVisitor):
         # Takes instance of Error_Reporter passed by reference
         # To pass information by reference at later stages
         self._reportHere = errorReporter
+        self._testsToRun = ["P705"]
 
     def visit_FunctionDef(self, node):
-        print(f'Node type: FunctionDef and fields {node._fields}')
-        if node.name == 'readCSV':
+        if "P705" in self._testsToRun and node.name == 'readCSV': # if Function name is readCSV
             P705_runTest = P705(self._reportHere, node, node.lineno, node.col_offset)
+            self._testsToRun.remove("P705")
         else:
             pass
         self.generic_visit(node)
+
+    def visit_Call(self, node):
+        dir(node)
+        #    pass
+        self.generic_visit(node)
+
 """
     def visit_Assign(self, node):
         print('Node type: Assign and fields: ', node._fields[0])
