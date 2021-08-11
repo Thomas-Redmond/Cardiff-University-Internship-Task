@@ -1,4 +1,5 @@
 import ast
+from src.Axxx.P702 import P702
 from src.Axxx.P705 import P705
 
 
@@ -14,13 +15,14 @@ class Router(ast.NodeVisitor):
         if "P705" in self._testsToRun and node.name == 'readCSV': # if Function name is readCSV
             P705_runTest = P705(self._reportHere, node, node.lineno, node.col_offset)
             self._testsToRun.remove("P705")
+        elif "P702" in self._testsToRun and node.name == 'q1a':
+            P702_runTest = P702(self._reportHere, node, node.lineno, node.col_offset)
+            self._testsToRun.remove("P705")
         else:
             pass
         self.generic_visit(node)
 
     def visit_Call(self, node):
-        dir(node)
-        #    pass
         self.generic_visit(node)
 
 """

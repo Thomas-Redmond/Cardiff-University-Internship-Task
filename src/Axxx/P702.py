@@ -8,15 +8,18 @@ class P702(astError, ast.NodeVisitor):
         self._Code = "P702"
         self._Text = "Call the function for 1a"
         self._Loc = [lineno, col_offset]
-        self.run(self._node)
 
     def run(self, node):
         """
-
+        In Function q1a check that the random seed is set
         """
         try:
-
+            pass
         except Exception as e:
             print(e)
             self.fail()
         return
+
+    def visit_Call(self, node):
+        
+        self.generic_visit(node)
