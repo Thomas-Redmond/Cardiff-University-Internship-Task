@@ -23,12 +23,7 @@ class PluginError:
 
     def run(self): pass # Overridden by Child class
 
-    def success(self):
-        """
-        [Temp] Informs user of success
-        """
-        print(f"{self._Code} Success")
-        return
+    def success(self): pass
 
     def fail(self):
         """
