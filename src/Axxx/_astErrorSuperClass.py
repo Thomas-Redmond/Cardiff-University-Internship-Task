@@ -7,7 +7,13 @@ class astError:
 
     def run(self): pass
 
-    def success(self): pass
+    def success(self):
+        for error in self._reportHere._record:
+            print(error, 'comparing against' , [0, 0, f"{self._Code}: {self._Text}"])
+            if error == [0, 0, f"{self._Code}: {self._Text}"]:
+                print(f"Removing error {error}")
+                self._reportHere.record.remove(error)
+                return
 
     def fail(self):
         self._reportHere.setRecord(self._Loc[0], self._Loc[1], self._Code + ": " + self._Text)

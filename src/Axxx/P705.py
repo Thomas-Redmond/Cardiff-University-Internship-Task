@@ -18,7 +18,6 @@ class P705(astError, ast.NodeVisitor):
         try:
             if len(node.args.args) >= 1: # testing number of parameters is at least 1
                 self.success()
-                # perhaps also test that the parameter name is informative?
             else:
                 self.fail()
         except Exception as e:
