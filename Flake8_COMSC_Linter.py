@@ -13,8 +13,20 @@ from typing import Type
 from typing import Any
 
 try: # importing code I have written
-    sys.path.insert(0, Path(__file__).parent.resolve()) # add installation folder to path
-    print(f"Added file location {Path(__file__).parent.resolve()} to Path")
+    fileDirectory = Path(__file__).parent
+    fileDirectoryParts = fileDirectory.parts
+
+    indexLib = fileDirectoryParts.index('lib')
+
+    newPath = Path()
+    for i in range(len(fileDirectoryParts)):
+        if i + 1 == indexLib:
+            break
+        else:
+            newPath = newPath.joinpath(fileDirectoryParts[i])
+
+    sys.path.insert(0, str(newPath)) # add installation folder to path
+    print(f"Added file location {newPath} to Path")
     import src.reportError as re    # place to record errors
     import src.AST_Router as ar     # Handles AST navigation for AST errors
     import src.Unit_Testing as ut   # handles "PyTest" style errors
