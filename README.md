@@ -8,11 +8,23 @@ Examples such as "no need for global keyword", "return answer from function as a
 Creates virtual environment  
 *py -m venv env*  
 
+or 
+
+*conda create --clone base --name ccs* 
+
 Activates Virtual Environment
 *.\env\Scripts\activate*  
 
+or
+
+*conda activate ccs*
+
 Install Plugin Requirements  
 *py -m pip install -r local/path/to/plugin/requirements.txt*  
+
+or
+
+*python -m pip install -r requirements.txt*
 
 Install Plugin  
 *python local/path/to/plugin/setup.py install*    
