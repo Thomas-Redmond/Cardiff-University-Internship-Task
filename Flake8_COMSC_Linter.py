@@ -14,6 +14,7 @@ from typing import Any
 
 try: # importing code I have written
     sys.path.insert(0, Path(__file__).parent) # add installation folder to path
+    print(f"Added file location {Path(__file__).parent} to Path")
     import src.reportError as re    # place to record errors
     import src.AST_Router as ar     # Handles AST navigation for AST errors
     import src.Unit_Testing as ut   # handles "PyTest" style errors
@@ -21,7 +22,7 @@ except Exception as e:
     raise ModuleNotFoundError(f"Importing source files failed using path {Path(__file__).parent}")
     print(e)
 
-    
+
 class Plugin:
     name = __name__
     version = importlib_metadata.version(__name__)
