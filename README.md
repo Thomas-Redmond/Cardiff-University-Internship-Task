@@ -5,12 +5,14 @@ Examples such as "no need for global keyword", "return answer from function as a
 
 
 # Installing Plugin for use
+Note: python3 and py are interchangeable depending how your Python is set up
+
 Creates virtual environment  
 *py -m venv env*  
 
-or 
+or
 
-*conda create --clone base --name ccs* 
+*conda create --clone base --name ccs*
 
 Activates Virtual Environment
 *.\env\Scripts\activate*  

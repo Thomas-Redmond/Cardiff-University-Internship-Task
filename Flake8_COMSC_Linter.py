@@ -13,8 +13,8 @@ from typing import Type
 from typing import Any
 
 try: # importing code I have written
-    sys.path.insert(0, Path(__file__).parent) # add installation folder to path
-    print(f"Added file location {Path(__file__).parent} to Path")
+    sys.path.insert(0, Path(__file__).parent.resolve()) # add installation folder to path
+    print(f"Added file location {Path(__file__).parent.resolve()} to Path")
     import src.reportError as re    # place to record errors
     import src.AST_Router as ar     # Handles AST navigation for AST errors
     import src.Unit_Testing as ut   # handles "PyTest" style errors
