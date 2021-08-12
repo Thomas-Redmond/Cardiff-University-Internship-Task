@@ -16,7 +16,7 @@ class Reporter:
         """
         self._record.insert(0, [line, col, error])
 
-    def removeDefaultError():
+    def removeDefaultError(self):
         """
         Removes Error Tuple at index 0 of self._record.
         Used by errors that fail by default.

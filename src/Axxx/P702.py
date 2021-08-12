@@ -14,14 +14,25 @@ class P702(astError, ast.NodeVisitor):
         self.generic_visit(node) # traverse child nodes in function q1a
 
     def visit_Call(self, node):
-        if node.func.id == "game":
-            print(f"{self._Code} success")
-            self.success()
+        """
+        Run test when encounters a function call ie question1(parameters)
+        Test checks whether function call is to function named game
+        Passes if so, removing error from location in self._reportHere
+        """
+        if isinstance(node.func, ast.Attribute):
+            pass # ignore ast.Attribute nodes that are here by mistake
         else:
-            print("failure")
-            pass
+            if node.func.id == "game":
+                print(f"{self._Code} success")
+                self.success()
+            else:
+                print("failure")
+                pass
         self.generic_visit(node)
 
     def success(self):
+        """
+        Remove error-by-default from list of errors
+        """
         self._reportHere.removeDefaultError()
         return
