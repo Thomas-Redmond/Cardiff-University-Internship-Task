@@ -19,7 +19,9 @@ try: # importing code I have written
     import src.Unit_Testing as ut   # handles "PyTest" style errors
 except Exception as e:
     raise ModuleNotFoundError(f"Importing source files failed using path {Path(__file__).parent}")
+    print(e)
 
+    
 class Plugin:
     name = __name__
     version = importlib_metadata.version(__name__)
