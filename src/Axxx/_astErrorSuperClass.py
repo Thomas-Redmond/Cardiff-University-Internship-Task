@@ -2,8 +2,6 @@ class astError:
 
     def __init__(self, reportHere, node):
         self._reportHere = reportHere
-        self._node = node
-        self._Loc = [0, 0]
 
     def run(self): pass
 
@@ -15,9 +13,12 @@ class astError:
                 self._reportHere.record.remove(error)
                 return
 
-    def fail(self):
-        self._reportHere.setRecord(self._Loc[0], self._Loc[1], self._Code + ": " + self._Text)
-        print(f"{self._Code} Failed")
+    def fail(self, node):
+        """
+        Add error report to self._reportHere Reporter class
+        """
+        self._reportHere.setRecord(node.lineno, node.col_offset, self._Code + ": " + self._Text)
+        # self.lineno + lineno      takes lineno of original tree + offset by new tree
 
     def displayAll(self):
         """

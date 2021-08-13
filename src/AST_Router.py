@@ -15,16 +15,16 @@ class Router(ast.NodeVisitor):
 
     def visit_FunctionDef(self, node):
         if "P700" in self._testsToRun and node.name == 'game':
-            P700_runTest = P700(self._reportHere, node, node.lineno, node.col_offset)
+            P700_runTest = P700(self._reportHere, node)
             self._testsToRun.remove("P700")
         elif "P702" in self._testsToRun and node.name == 'q1a':
-            P702_runTest = P702(self._reportHere, node, node.lineno, node.col_offset)
+            P702_runTest = P702(self._reportHere, node)
             self._testsToRun.remove("P702")
         elif "P705" in self._testsToRun and node.name == 'readCSV': # if Function name is readCSV
-            P705_runTest = P705(self._reportHere, node, node.lineno, node.col_offset)
+            P705_runTest = P705(self._reportHere, node)
             self._testsToRun.remove("P705")
         elif "P714" in self._testsToRun and node.name == 'plotWinProbabilities': # if Function name is readCSV
-            P714_runTest = P714(self._reportHere, node, node.lineno, node.col_offset)
+            P714_runTest = P714(self._reportHere, node)
             self._testsToRun.remove("P714")
 
         else:

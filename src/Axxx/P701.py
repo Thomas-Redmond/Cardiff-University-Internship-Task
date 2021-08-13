@@ -18,5 +18,5 @@ class P701(astError, ast.NodeVisitor):
 
         except Exception as e:
             print(e)
-            self.fail()
+            self.fail(self._lineno + node.lineno, node.col_offset)
         return
