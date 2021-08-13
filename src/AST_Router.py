@@ -3,6 +3,7 @@ from src.Axxx.P700 import P700
 from src.Axxx.P702 import P702
 from src.Axxx.P705 import P705
 from src.Axxx.P714 import P714
+from src.Axxx.P717 import P717
 
 
 class Router(ast.NodeVisitor):
@@ -11,7 +12,7 @@ class Router(ast.NodeVisitor):
         # Takes instance of Error_Reporter passed by reference
         # To pass information by reference at later stages
         self._reportHere = errorReporter
-        self._testsToRun = ["P700", "P702", "P705", "P714"]
+        self._testsToRun = ["P700", "P702", "P705", "P714", "P717"]
 
     def visit_FunctionDef(self, node):
         if "P700" in self._testsToRun and node.name == 'game':
@@ -26,6 +27,9 @@ class Router(ast.NodeVisitor):
         elif "P714" in self._testsToRun and node.name == 'plotWinProbabilities': # if Function name is readCSV
             P714_runTest = P714(self._reportHere, node)
             self._testsToRun.remove("P714")
+        elif "P717" in self._testsToRun and node.name == 'winProbability':
+            P717_runTest = P717(self._reportHere, node)
+            self._testsToRun.remove("P717")
 
         else:
             pass
