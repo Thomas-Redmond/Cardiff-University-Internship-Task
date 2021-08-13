@@ -23,10 +23,8 @@ class P702(astError, ast.NodeVisitor):
             pass # ignore ast.Attribute nodes that are here by mistake
         else:
             if node.func.id == "game":
-                print(f"{self._Code} success")
                 self.success()
             else:
-                print("failure")
                 pass
         self.generic_visit(node)
 

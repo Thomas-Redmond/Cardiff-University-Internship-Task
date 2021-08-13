@@ -15,8 +15,10 @@ from typing import Any
 try: # importing code I have written
     fileDirectory = Path(__file__).parent
     fileDirectoryParts = fileDirectory.parts
-
-    indexLib = fileDirectoryParts.index('lib')
+    if 'lib' in fileDirectoryParts:
+        indexLib = fileDirectoryParts.index('lib')
+    else:
+        indexLib = len(fileDirectoryParts)
 
     newPath = Path()
     for i in range(len(fileDirectoryParts)):
