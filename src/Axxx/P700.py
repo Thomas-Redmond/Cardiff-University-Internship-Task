@@ -16,15 +16,14 @@ class P700(astError, ast.NodeVisitor):
         """
         try:
             if isinstance(node.func, ast.Attribute):
-                pass
-            else:
-                if node.func.id == 'random' and node.func.attr == 'seed':
-                    print(f"{self._Code} test failed")
-                    self._Loc = [self._Loc[0] + 0, self._Loc[1] + 0] 
+                if node.func.value.id == "random" and node.func.attr == "seed":
+                    # if function call is random.seed then fail
+                    self._Loc = [self._Loc[0] + node.lineno, self._Loc[1] + node.col_offset]
                     self.fail()
                 else:
-                    print(f"{self._Code} test passed")
-                    self.success()
+                    pass
+            else:
+                pass
 
         except Exception as e:
             print(e)
