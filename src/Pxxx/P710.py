@@ -18,7 +18,7 @@ class P710(PluginError):
         address = Path(filename)
         address = address.with_name('data.csv')
         try:
-            desired_row_num = 2
+            desired_row_num = 5
             if Path.exists(address):
                 data = Squash.readCSV(address)
                 if len(data) == desired_row_num:
