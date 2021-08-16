@@ -29,3 +29,24 @@ Starting in directory containing sub-folder created by virtual environment. We w
 * *.\env\Scripts\activate* Activate the virtual environment
 * *Python3 -m pip install -r requirements.txt* Install all Python modules required to run in virtual environment. This step is only needed on the first installation.
 * *Python3 setup.py install* Install the plugin
+
+# Error List
+Error Name | Description
+--------------|----------------
+P700 | Random.seed() used inside the function game
+P702 | Call the function game for 1a
+P703 | Return answer from winProbability as a number
+P704 | Returned answer should not be rounded
+P705 | Pass filename as argument, do not hardcode
+P709 | Question asked for a different function name
+P710 | Skip the header row in data.csv
+P711 | Convert tuples to numbers
+P712 | Handle the extra column
+P713 | Data should be sorted OR only plot points to avoid an untidy graph
+P714 | Sorting values seperately loses connection between x and y
+P715 | X - axis should be ra / rb
+P716 | Should be r_a / r_b for this match
+P717 | Should be the probability for winning the game
+P718 | Plot independant variable on x - axis
+P719 | Don't use global variables
+P720 | Use CSV module
