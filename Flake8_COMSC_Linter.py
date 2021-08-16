@@ -12,28 +12,36 @@ from typing import Tuple
 from typing import Type
 from typing import Any
 
+def addSRC2Path():
+    try:
+        fileDirectory = Path(__file__).parent
+        fileDirectoryParts = fileDirectory.parts
+        if 'lib' in fileDirectoryParts:
+            indexLib = fileDirectoryParts.index('lib')
+            newPath = Path()
+
+            for addressComponent in fileDirectoryParts:
+                if addressComponent != 'lib':
+                    newPath = newPath.joinpath(addressComponent)
+                else:
+                    newPath = newPath.parent # strip last directory before lib out of address
+                    print(newPath)
+                    break
+
+
+        sys.path.insert(0, str(newPath)) # add installation folder to path
+        print(f"Added file location {newPath} to Path")
+    except ModuleNotFoundError:
+        print(f"Importing source files failed using path {newPath} given {Path(__file__).parent}")
+        print(f"Traceback {e}")
+
 try: # importing code I have written
-    fileDirectory = Path(__file__).parent
-    fileDirectoryParts = fileDirectory.parts
-    if 'lib' in fileDirectoryParts:
-        indexLib = fileDirectoryParts.index('lib')
-    else:
-        indexLib = len(fileDirectoryParts)
-
-    newPath = Path()
-    for i in range(len(fileDirectoryParts)):
-        if i + 1 == indexLib:
-            break
-        else:
-            newPath = newPath.joinpath(fileDirectoryParts[i])
-
-    sys.path.insert(0, str(newPath)) # add installation folder to path
-    print(f"Added file location {newPath} to Path")
+    addSRC2Path() # add my code to front of path
     import src.reportError as re    # place to record errors
     import src.AST_Router as ar     # Handles AST navigation for AST errors
     import src.Unit_Testing as ut   # handles "PyTest" style errors
 except Exception as e:
-    raise ModuleNotFoundError(f"Importing source files failed using path {Path(__file__).parent}")
+    raise ModuleNotFoundError(f"Importing source files failed using path {newPath} given {Path(__file__).parent}")
     print(e)
 
 
