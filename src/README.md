@@ -26,9 +26,12 @@ A virtual environment included with Python 3.
 ## Windows
 Starting in directory containing sub-folder created by virtual environment. We will call this folder env.  
 
-* *.\env\Scripts\activate* Activate the virtual environment
-* *Python3 -m pip install -r requirements.txt* Install all Python modules required to run in virtual environment. This step is only needed on the first installation.
-* *Python3 setup.py install* Install the plugin
+* *.\env\Scripts\activate*
+  * Activate the virtual environment
+* *Python3 -m pip install -r requirements.txt*
+  * Install all Python modules required to run in virtual environment. This step is only needed on the first installation.
+* *Python3 setup.py install*
+  * Install the plugin
 
 # Error List
 Error Name | Description
