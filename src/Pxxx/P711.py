@@ -15,21 +15,18 @@ class P711(PluginError):
         """
         Checks that each item returned by Squash.readCSV is a number
         """
-        address = Path(filename)
-        address = address.with_name('data.csv')
         try:
-            if Path.exists(address):
-                data = Squash.readCSV(address)
-                for row in data:
-                    for item in row:
-                        if isinstance(item, (int, float, complex)):
-                            pass
-                        else:
-                            self.fail()
-                            return
+
+            data = Squash.readCSV("test.csv")
+            for row in data:
+                for item in row:
+                    if isinstance(item, (int, float, complex)):
+                        pass
+                    else:
+                        self.fail()
+                        return
                 self.success()
-            else:
-                raise FileNotFoundError(f"data.csv not found in directory {address}")
+
         except Exception as e:
             print(f"{self._Code} Test Aborted due to unexpected error")
             print(e)

@@ -15,20 +15,15 @@ class P712(PluginError):
         """
         Checks that every row has the desired number of columns
         """
-        address = Path(filename)
-        address = address.with_name('data.csv')
         try:
-            if Path.exists(address):
-                desired_col_num = 2 # Modify to fit required function
+            desired_col_num = 2 # Modify to fit required function
 
-                data = Squash.readCSV(address)
-                for row in data:
-                    if len(row) != desired_col_num:
-                        self.fail()
-                        return
-                self.success()
-            else:
-                raise FileNotFoundError(f"data.csv not found in directory {address}")
+            data = Squash.readCSV("test.csv")
+            for row in data:
+                if len(row) != desired_col_num:
+                    self.fail()
+                    return
+            self.success()
 
         except Exception as e:
             print(f"{self._Code} Test Aborted due to unexpected error")
