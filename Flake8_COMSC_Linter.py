@@ -28,8 +28,8 @@ def addSRC2Path():
                     print(newPath)
                     break
 
-        else:
-            raise Exception("Virtual Environment not in use")
+        # else:
+        #     raise Exception("Virtual Environment not in use")
         sys.path.insert(0, str(newPath)) # add installation folder to path
         print(f"Added file location {newPath} to Path")
     except ModuleNotFoundError:

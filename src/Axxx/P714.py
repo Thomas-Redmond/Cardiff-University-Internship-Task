@@ -16,7 +16,6 @@ class P714(astError, ast.NodeVisitor):
         Checks number of occurrences of sort in function > 1 fail
         """
         try:
-            print(f"node is {ast.dump(node)}")
             if isinstance(node.func, ast.Attribute):
                 pass
             else:
