@@ -14,29 +14,23 @@ class Router(ast.NodeVisitor):
         # Takes instance of Error_Reporter passed by reference
         # To pass information by reference at later stages
         self._reportHere = errorReporter
-        self._testsToRun = ["P700", "P702", "P705", "P714", "P715", "P717"]
 
     def visit_FunctionDef(self, node):
-        if "P700" in self._testsToRun and node.name == 'game':
+        if node.name == 'game':
             P700_runTest = P700(self._reportHere, node)
-            self._testsToRun.remove("P700")
-        elif "P702" in self._testsToRun and node.name == 'q1a':
+
+        elif node.name == 'q1a':
             P702_runTest = P702(self._reportHere, node)
-            self._testsToRun.remove("P702")
-        elif "P705" in self._testsToRun and node.name == 'readCSV': # if Function name is readCSV
+
+        elif node.name == 'readCSV':
             P705_runTest = P705(self._reportHere, node)
-            self._testsToRun.remove("P705")
-        elif "P714" in self._testsToRun and node.name == 'plotWinProbabilities': # if Function name is readCSV
 
+        elif node.name == 'plotWinProbabilities':
             P714_runTest = P714(self._reportHere, node)
-            self._testsToRun.remove("P714")
-
             P715_runTest = P715(self._reportHere, node)
-            self._testsToRun.remove("P715")
 
-        elif "P717" in self._testsToRun and node.name == 'winProbability':
+        elif node.name == 'winProbability':
             P717_runTest = P717(self._reportHere, node)
-            self._testsToRun.remove("P717")
 
         else:
             pass
