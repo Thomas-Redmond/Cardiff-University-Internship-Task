@@ -6,7 +6,7 @@ class P716(astError, ast.NodeVisitor):
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
         self._Code = "P716"
-        self._Text = "Plot independant variable on the x - axis"
+        self._Text = "Should be left column / right column"
 
         self.vars = [None, None]
 
@@ -27,9 +27,6 @@ class P716(astError, ast.NodeVisitor):
 
 
     def visit_BinOp(self, node):
-        print(f"{ast.dump(node)}")
-        print(f"{ast.dump(node.op)}")
-        print(isinstance(node.op, ast.Div))
         if (node.left.id == self.vars[0] and
             isinstance(node.op, ast.Div) and
             node.right.id == self.vars[1]):
