@@ -2,6 +2,7 @@ import ast
 from src.Axxx.P700 import P700
 from src.Axxx.P702 import P702
 from src.Axxx.P705 import P705
+from src.Axxx.P713 import P713
 from src.Axxx.P714 import P714
 from src.Axxx.P715 import P715
 
@@ -26,8 +27,9 @@ class Router(ast.NodeVisitor):
             P705_runTest = P705(self._reportHere, node)
 
         elif node.name == 'plotWinProbabilities':
+            P713_runTest = P713(self._reportHere, node)
             P714_runTest = P714(self._reportHere, node)
-            P715_runTest = P715(self._reportHere, node)
+            #P715_runTest = P715(self._reportHere, node)
 
         elif node.name == 'winProbability':
             P717_runTest = P717(self._reportHere, node)
