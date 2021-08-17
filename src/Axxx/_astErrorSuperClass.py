@@ -5,20 +5,13 @@ class astError:
 
     def run(self): pass
 
-    def success(self):
-        for error in self._reportHere._record:
-            print(error, 'comparing against' , [0, 0, f"{self._Code}: {self._Text}"])
-            if error == [0, 0, f"{self._Code}: {self._Text}"]:
-                print(f"Removing error {error}")
-                self._reportHere.record.remove(error)
-                return
+    def success(self): pass
 
     def fail(self, node):
         """
         Add error report to self._reportHere Reporter class
         """
         self._reportHere.setRecord(node.lineno, node.col_offset, self._Code + ": " + self._Text)
-        # self.lineno + lineno      takes lineno of original tree + offset by new tree
 
     def displayAll(self):
         """
