@@ -5,12 +5,19 @@ class basicError:
     def __init__(self, reportHere):
         self._errorRecord = reportHere  # Reference to object
         self._failByDefault = False     # Will error be recorded on start ?
-        self._errorCode = ""
-        self._errorText = ""
+        self._errorCode = "Pxxx"
+        self._errorText = "Example Error"
 
-    def fail(self): pass # Overriden later
+    def fail(self): # Overriden by child class
+        # Appends details of failed test to Reporter obj referenced by self._errorRecord
+        self._errorRecord.setRecord(0, 0, self._Code + ": " + self._Text)
 
-    def failByDefault(self): pass # Overriden later
+    def failByDefault(self): # Overriden later
+        # Inserts Error at beginning to be removed later (Guilty until proven innocent)
+        if self._failByDefault == True:
+            self._errorRecord.insertDefaultError(0, 0, self._Code + ": " + self._Text)
+        else:
+            raise UserWarning("This is not a Fail-By-Default error")
 
     def success(self):
         # remove errorByDefault if true otherwise does nothing
@@ -18,28 +25,19 @@ class basicError:
             self._errorRecord.removeDefaultError()
         else: pass
 
-class utError(basicError):
-
-    def __init__(self, reportHere):
-        super().__init__(reportHere)
-
-    def fail(self):
-        """
-        Appends details of failed test to Record in class Reporter
-        [Temp] Notifies user of failure
-        """
-        self._reportHere.setRecord(0, 0, self._Code + ": " + self._Text)
-
 
 class astError(basicError, ast.NodeVisitor):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere)
 
-        self.generic_visit()
-
-    def fail(self, node):
-        """
-        Add error report to self._reportHere Reporter class
-        """
+    def fail(self, node): # Overrides basicError version
+        # Appends details of failed test to Reporter obj referenced by self._errorRecord
         self._reportHere.setRecord(node.lineno, node.col_offset, self._Code + ": " + self._Text)
+
+    def failByDefault(self, node): # Override
+        # Inserts Error at beginning to be removed later (Guilty until proven innocent)
+        if self._failByDefault == True:
+            self._errorRecord.insertDefaultError(node.lineno, node.col_offset, self._Code + ": " + self._Text)
+        else:
+            raise UserWarning("This is not a Fail-By-Default error")
