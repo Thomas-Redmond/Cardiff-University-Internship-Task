@@ -1,47 +1,42 @@
 # File is for generic type errors
+import ast
 
 class basicError:
     def __init__(self, reportHere):
         self._errorRecord = reportHere  # Reference to object
-        self._failByDefault = False     # Will error be recorded on start
+        self._failByDefault = False     # Will error be recorded on start ?
+        self._errorCode = ""
+        self._errorText = ""
 
-        failByDefault()
+    def fail(self): pass # Overriden later
 
-    def fail(self): pass
+    def failByDefault(self): pass # Overriden later
 
-    def failByDefault(self):
+    def success(self):
+        # remove errorByDefault if true otherwise does nothing
         if self._failByDefault == True:
-            self._errorRecord.insertDefaultError()
+            self._errorRecord.removeDefaultError()
+        else: pass
 
-    def success(self): pass
-
-class PluginError:
+class utError(basicError):
 
     def __init__(self, reportHere):
-        self._reportHere = reportHere
-        self._Loc = [0, 0]
-
-    def run(self): pass # Overridden by Child class
-
-    def success(self): pass
+        super().__init__(reportHere)
 
     def fail(self):
         """
         Appends details of failed test to Record in class Reporter
         [Temp] Notifies user of failure
         """
-        self._reportHere.setRecord(self._Loc[0], self._Loc[1], self._Code + ": " + self._Text)
-        print(f"{self._Code} Failed")
-        return
+        self._reportHere.setRecord(0, 0, self._Code + ": " + self._Text)
 
-class astError:
+
+class astError(basicError, ast.NodeVisitor):
 
     def __init__(self, reportHere, node):
-        self._reportHere = reportHere
+        super().__init__(reportHere)
 
-    def run(self): pass
-
-    def success(self): pass
+        self.generic_visit()
 
     def fail(self, node):
         """
