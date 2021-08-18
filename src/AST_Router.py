@@ -40,32 +40,3 @@ class Router(ast.NodeVisitor):
         else:
             pass
         self.generic_visit(node)
-
-    def visit_Call(self, node):
-        self.generic_visit(node)
-
-"""
-    def visit_Assign(self, node):
-        print('Node type: Assign and fields: ', node._fields[0])
-        self.generic_visit(node)
-
-    def visit_BinOp(self, node):
-        print('Node type: BinOp and fields: ', node._fields)
-        self.generic_visit(node)
-
-    def visit_Expr(self, node):
-        print('Node type: Expr and fields: ', node._fields)
-        self.generic_visit(node)
-
-    def visit_Constant(self,node):
-        print('Node type: Constant and fields: ', node._fields)
-        self.generic_visit(node)
-
-    def visit_Import(self, node):
-        print("Import visited")
-        self.generic_visit(node)
-
-    def visit_ImportFrom(self, node):
-        print("Import From visited")
-        self.generic_visit(node)
-"""
