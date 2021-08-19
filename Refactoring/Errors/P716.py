@@ -9,9 +9,11 @@ class P716(astError):
 
         self.vars = [None, None]
 
-        # Error reported by default, successful test removes from list
-        self._reportHere.insertDefaultError(node.lineno, node.col_offset, self._Code + ": " + self._Text)
-        self.generic_visit(node) # traverse child nodes in function q1a
+        self._failByDefault = True  # Guilty-until-proven-innocent
+        self.failByDefault(node)    # Add Error to record
+
+        self.generic_visit(node)    # Begin traversing child nodes
+
 
     def visit_For(self, node):
         """
@@ -19,10 +21,10 @@ class P716(astError):
         Test checks whether function call is to function named game
         Passes if so, removing error from location in self._reportHere
         """
-        var1Col = node.target.elts[0].id # save variable name of 1st column
-        var2Col = node.target.elts[1].id # save variable name of 2nd column
-        self.vars = [var1Col, var2Col]
-        self.generic_visit(node)
+        var1Col = node.target.elts[0].id    # save variable name of 1st column
+        var2Col = node.target.elts[1].id    # save variable name of 2nd column
+        self.vars = [var1Col, var2Col]      # store values in class scope
+        self.generic_visit(node)            # Traversing child nodes
 
 
     def visit_BinOp(self, node):
@@ -31,11 +33,5 @@ class P716(astError):
             node.right.id == self.vars[1]):
 
             self.success()
-        self.generic_visit(node)
 
-    def success(self):
-        """
-        Remove error-by-default from list of errors
-        """
-        self._reportHere.removeDefaultError()
-        return
+        self.generic_visit(node)

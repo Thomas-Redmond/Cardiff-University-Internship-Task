@@ -7,9 +7,11 @@ class P717(astError):
         self._Code = "P717"
         self._Text = "Should be probability of winning a game"
 
-        # Error reported by default, successful test removes from list
-        self._reportHere.insertDefaultError(node.lineno, node.col_offset, self._Code + ": " + self._Text)
-        self.generic_visit(node) # traverse child nodes in function q1a
+        self._failByDefault = True  # Guilty-until-proven-innocent
+        self.failByDefault(node)    # Add Error to record
+
+        self.generic_visit(node)    # Begin traversing child nodes
+
 
     def visit_Call(self, node):
         """
@@ -25,10 +27,3 @@ class P717(astError):
             else:
                 pass
         self.generic_visit(node)
-
-    def success(self):
-        """
-        Remove error-by-default from list of errors
-        """
-        self._reportHere.removeDefaultError()
-        return

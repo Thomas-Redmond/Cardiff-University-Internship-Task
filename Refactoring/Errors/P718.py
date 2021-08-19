@@ -7,25 +7,19 @@ class P718(astError):
         self._Code = "P718"
         self._Text = "Plot independant variable on the x - axis"
 
-        # Error reported by default, successful test removes from list
-        self._reportHere.insertDefaultError(node.lineno, node.col_offset, self._Code + ": " + self._Text)
-        self.generic_visit(node) # traverse child nodes in function q1a
+        self._failByDefault = True  # Guilty-until-proven-innocent
+        self.failByDefault(node)    # Add Error to record
+
+        self.generic_visit(node)    # Begin traversing child nodes
 
 
     def visit_Call(self, node):
         if isinstance(node.func, ast.Attribute):
-            if node.func.value.id == "plt" and node.func.attr == "plot": # # plt.plot
+            if node.func.value.id == "plt" and node.func.attr == "plot": # plt.plot()
                 if node.args[0].id == "x" and node.args[1].id == "y":
                     self.success()
-                    return
+                    return  # End Test
                 else:
-                    return # test failed
+                    return # Test Failed, end test
 
-        self.generic_visit(node)
-
-    def success(self):
-        """
-        Remove error-by-default from list of errors
-        """
-        self._reportHere.removeDefaultError()
-        return
+        self.generic_visit(node)    # Traverse child nodes

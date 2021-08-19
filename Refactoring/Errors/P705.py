@@ -7,7 +7,7 @@ class P705(astError):
         self._Code = "P705"
         self._Text = "Pass the filename as an argument"
 
-        self.run(node)
+        self.run(node) # No need to traverse node further
 
     def run(self, node):
         """
