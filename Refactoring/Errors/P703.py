@@ -1,7 +1,6 @@
-from src.Pxxx._PluginErrorSuperClass import Squash
-from src.Pxxx._PluginErrorSuperClass import PluginError
+from errorType import basicError
 
-class P703(PluginError):
+class P703(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
@@ -10,7 +9,6 @@ class P703(PluginError):
 
 
     def run(self):
-        # Function Override
         """
         Tests that winProbability returns an integer, float or complex value
         """
@@ -22,6 +20,5 @@ class P703(PluginError):
                 self.fail()
 
         except Exception as e:
-            print(f"{self._errorCode} Test Aborted due to unexpected error")
             print(e)
             self.fail()

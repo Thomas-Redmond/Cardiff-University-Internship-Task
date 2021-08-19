@@ -1,4 +1,4 @@
-from from errorType import astError
+from errorType import astError
 
 class P700(astError):
 

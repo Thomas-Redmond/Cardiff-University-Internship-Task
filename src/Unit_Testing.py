@@ -22,7 +22,9 @@ class Controller:
         Errors will be recorded in the instance of Reporter passed to this class upon instantiation.
         """
         for test in self._testsToRun:
-            instance = test(self._reportHere)
-            instance.run()
-
+            try:
+                instance = test(self._reportHere)
+                instance.run()
+            except Exception as e:
+                print(f"Unexpected Error {e}")
         return
