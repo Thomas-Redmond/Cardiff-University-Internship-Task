@@ -4,8 +4,8 @@ class P718(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P718"
-        self._Text = "Plot independant variable on the x - axis"
+        self._errorCode = "P718"
+        self._errorText = "Plot independant variable on the x - axis"
 
         self._failByDefault = True  # Guilty-until-proven-innocent
         self.failByDefault(node)    # Add Error to record

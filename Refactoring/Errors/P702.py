@@ -4,8 +4,8 @@ class P702(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P702"
-        self._Text = "Call the function 'game' for 1a"
+        self._errorCode = "P702"
+        self._errorText = "Call the function 'game' for 1a"
 
         self._failByDefault = True  # Guilty-until-proven-innocent
         self.failByDefault(node)    # Add Error to record

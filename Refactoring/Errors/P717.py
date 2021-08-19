@@ -4,8 +4,8 @@ class P717(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P717"
-        self._Text = "Should be probability of winning a game"
+        self._errorCode = "P717"
+        self._errorText = "Should be probability of winning a game"
 
         self._failByDefault = True  # Guilty-until-proven-innocent
         self.failByDefault(node)    # Add Error to record

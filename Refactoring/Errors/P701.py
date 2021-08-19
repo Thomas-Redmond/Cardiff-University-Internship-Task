@@ -4,8 +4,8 @@ class P701(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P701"
-        self._Text = "For loop is more appropriate in this function"
+        self._errorCode = "P701"
+        self._errorText = "For loop is more appropriate in this function"
 
         self._failByDefault = True  # Guilty-until-proven-innocent
         self.failByDefault(node)    # Add Error to record

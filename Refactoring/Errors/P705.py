@@ -4,8 +4,8 @@ class P705(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P705"
-        self._Text = "Pass the filename as an argument"
+        self._errorCode = "P705"
+        self._errorText = "Pass the filename as an argument"
 
         self.run(node) # No need to traverse node further
 

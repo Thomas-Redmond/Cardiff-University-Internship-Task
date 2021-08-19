@@ -4,8 +4,8 @@ class P713(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P713"
-        self._Text = "Need to sort data or only plot points"
+        self._errorCode = "P713"
+        self._errorText = "Need to sort data or only plot points"
 
         self._failByDefault = True  # Guilty-until-proven-innocent
         self.failByDefault(node)    # Add Error to record

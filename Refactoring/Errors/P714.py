@@ -4,8 +4,8 @@ class P714(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P714"
-        self._Text = "Sorting separately loses connection between input/output"
+        self._errorCode = "P714"
+        self._errorText = "Sorting separately loses connection between input/output"
 
         self.sortedDetected = 0     # Keeps track of use of sorted() in file
         self.generic_visit(node)    # Traverse Child Nodes

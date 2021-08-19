@@ -4,10 +4,10 @@ class P716(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P716"
-        self._Text = "Should be left column / right column"
+        self._errorCode = "P716"
+        self._errorText = "Should be left column / right column"
 
-        self.vars = [None, None]
+        self._vars = [None, None]
 
         self._failByDefault = True  # Guilty-until-proven-innocent
         self.failByDefault(node)    # Add Error to record
@@ -23,14 +23,14 @@ class P716(astError):
         """
         var1Col = node.target.elts[0].id    # save variable name of 1st column
         var2Col = node.target.elts[1].id    # save variable name of 2nd column
-        self.vars = [var1Col, var2Col]      # store values in class scope
+        self._vars = [var1Col, var2Col]      # store values in class scope
         self.generic_visit(node)            # Traversing child nodes
 
 
     def visit_BinOp(self, node):
-        if (node.left.id == self.vars[0] and
+        if (node.left.id == self._vars[0] and
             isinstance(node.op, ast.Div) and
-            node.right.id == self.vars[1]):
+            node.right.id == self._vars[1]):
 
             self.success()
 
