@@ -22,10 +22,3 @@ class Reporter:
         Used by errors that fail by default.
         """
         del self._record[0]
-
-    def displayRecord(self):
-        """
-        Outputs line, col, and error from each Tuple stored in self Record
-        """
-        for line, col, error in self._record:
-            print(f"{line}, {col}, {error}, error detected")

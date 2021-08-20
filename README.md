@@ -57,7 +57,6 @@ P711 | Convert tuples to numbers
 P712 | Handle the extra column
 P713 | Data should be sorted OR only plot points to avoid an untidy graph
 P714 | Sorting values seperately loses connection between x and y
-P715 | X - axis should be ra / rb
 P716 | Should be r_a / r_b for this match
 P717 | Should be the probability for winning the game
 P718 | Plot independant variable on x - axis

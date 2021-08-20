@@ -11,6 +11,6 @@
 
 ### Developement Tips
 
-1. When deciphering AST nodes, use print(f"Node is: {ast.dump(node)}") often
+* When deciphering AST nodes, use *print(f"Node is: {ast.dump(node)}")* often
   * This prints out the text-based description of the node to identify type and attributes.
   * Further nodes can be looked at by referring to the original ie node.func
