@@ -9,7 +9,7 @@ This guides presumes a venv virtual environment has already been created, and Py
 # Virtual Environment
 Please install a virtual environment to use this Program. This will stop module requirements from interfering with your main system.
 
-## Venv
+### Venv
 A virtual environment included with Python 3. Recommended to use with this program.
 
 * *Python3 -m venv env*
@@ -20,7 +20,7 @@ A virtual environment included with Python 3. Recommended to use with this progr
 * *deactivate*
   * End virtual environment session
 
-## Conda
+### Conda
 A virtual environment for MacOS, and Linux terminal(s). Alternative option to use.
 * *conda create --clone base --name ccs*
   * Create virtual environment
