@@ -7,7 +7,7 @@ from Errors.P712 import P712 as P712_Test
 from Errors.P719 import P719 as P719_Test
 from Errors.P720 import P720 as P720_Test
 
-from consoleCommands import parser
+import consoleCommands
 
 class Controller:
 
@@ -26,17 +26,17 @@ class Controller:
         Errors will be recorded in the instance of Reporter passed to this class upon instantiation.
         """
 
-        parse = consoleCommands.parser()
-        if parse.addressAcceptance(): # returns True / False
+        parsed = consoleCommands.parser()
+        if parsed.isAddressAbs(): # returns True / False
             pass
         else: return # skip the following tests
 
-        import()
+        self._Squash = __import__(str(parsed.address)) # should be added to path for importing
 
 
         for test in self._testsToRun:
             try:
-                instance = test(self._errorRecord)
+                instance = test(self._errorRecord, self._Squash)
                 instance.run()
             except Exception as e:
                 print(f"Unexpected Error {e}")

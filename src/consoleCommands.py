@@ -6,10 +6,17 @@ class parser:
         self.systemArguments = sys.argv
         self.address = ""
 
-    def addressAcceptance(self):
+        self.findAddress() # address may be relative or other options
+
+
+    def findAddress(self):
         for possibleAddress in self.systemArguments:
-            if Path.is_absolute(possibleAddress):
-                self.address = possibleAddress
-                return True
-            else:
-                return False
+            if Path.exists(Path(possibleAddress)):
+                self.address = Path(possibleAddress)
+            else: pass
+
+    def isAddressAbs(self):
+        if Path.is_absolute(self.address):
+            return True
+        else:
+            return False
