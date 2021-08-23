@@ -1,6 +1,6 @@
-from errorType import basicError
+from Errors.errorType import basicError
 
-class P711(PluginError):
+class P711(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)

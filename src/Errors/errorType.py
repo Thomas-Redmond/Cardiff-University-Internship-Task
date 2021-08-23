@@ -10,12 +10,12 @@ class basicError:
 
     def fail(self): # Overriden by child class
         # Appends details of failed test to Reporter obj referenced by self._errorRecord
-        self._errorRecord.setRecord(0, 0, self._Code + ": " + self._Text)
+        self._errorRecord.setRecord(0, 0, self._errorCode + ": " + self._errorText)
 
     def failByDefault(self): # Overriden later
         # Inserts Error at beginning to be removed later (Guilty until proven innocent)
         if self._failByDefault == True:
-            self._errorRecord.insertDefaultError(0, 0, self._Code + ": " + self._Text)
+            self._errorRecord.insertDefaultError(0, 0, self._errorCode + ": " + self._errorText)
         else:
             raise UserWarning("This is not a Fail-By-Default error")
 
@@ -33,11 +33,11 @@ class astError(basicError, ast.NodeVisitor):
 
     def fail(self, node): # Overrides basicError version
         # Appends details of failed test to Reporter obj referenced by self._errorRecord
-        self._reportHere.setRecord(node.lineno, node.col_offset, self._Code + ": " + self._Text)
+        self._errorRecord.setRecord(node.lineno, node.col_offset, self._errorCode + ": " + self._errorText)
 
     def failByDefault(self, node): # Override
         # Inserts Error at beginning to be removed later (Guilty until proven innocent)
         if self._failByDefault == True:
-            self._errorRecord.insertDefaultError(node.lineno, node.col_offset, self._Code + ": " + self._Text)
+            self._errorRecord.insertDefaultError(node.lineno, node.col_offset, self._errorCode + ": " + self._errorText)
         else:
             raise UserWarning("This is not a Fail-By-Default error")

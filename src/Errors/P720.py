@@ -1,5 +1,5 @@
 import sys
-from errorType import basicError
+from Errors.errorType import basicError
 
 class P720(basicError):
 

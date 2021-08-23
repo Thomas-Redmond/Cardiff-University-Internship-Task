@@ -1,4 +1,6 @@
-from errorType import astError
+import ast
+from Errors.errorType import astError
+
 
 class P717(astError):
 
