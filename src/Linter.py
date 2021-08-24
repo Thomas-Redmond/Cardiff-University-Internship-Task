@@ -11,7 +11,7 @@ from typing import Tuple
 from typing import Type
 from typing import Any
 
-import errorReporter
+import .errorReporter
 import AST_Router
 import Unit_Testing
 
@@ -31,6 +31,7 @@ class Plugin:
         Runs the various tests and yields the detected errors.
         """
 
+        print(f"Running checks")
         self._routerAST.visit(self._tree) # will send AST to begin traversal
         self._testUnit.run()
         for [line, col, error] in self._errorRecord._record:
