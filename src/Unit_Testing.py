@@ -7,15 +7,15 @@ from Errors.P712 import P712 as P712_Test
 from Errors.P719 import P719 as P719_Test
 from Errors.P720 import P720 as P720_Test
 
-import consoleCommands
+from Errors.errorType import specialCase as sC
 
 class Controller:
 
     def __init__(self, errorReporter):
         # pass Error_Reporter instance by reference
         # allows this class to utilise its functions
-        self._errorRecord = errorReporter
-        self._testsToRun = [
+        self.errorRecord = errorReporter
+        self.testsToRun = [
             P703_Test, P704_Test, P709_Test, P710_Test,
             P711_Test, P712_Test, P719_Test, P720_Test
             ]
@@ -26,18 +26,13 @@ class Controller:
         Errors will be recorded in the instance of Reporter passed to this class upon instantiation.
         """
 
-        parsed = consoleCommands.parser()
-        if parsed.isAddressAbs(): # returns True / False
-            pass
-        else: return # skip the following tests
+        squashContainer = sC()
+        Squash = squashContainer.Squash
 
-        self._Squash = __import__(str(parsed.address)) # should be added to path for importing
-
-
-        for test in self._testsToRun:
+        for test in self.testsToRun:
             try:
-                instance = test(self._errorRecord, self._Squash)
-                instance.run()
+                instance = test(self.errorRecord)
+                instance.run(Squash)
             except Exception as e:
                 print(f"Unexpected Error {e}")
         return

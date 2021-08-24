@@ -8,7 +8,7 @@ class P703(basicError):
         self._errorText = "winProbability must return a number"
 
 
-    def run(self):
+    def run(self, Squash):
         """
         Tests that winProbability returns an integer, float or complex value
         """

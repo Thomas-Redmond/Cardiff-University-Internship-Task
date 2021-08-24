@@ -8,7 +8,7 @@ class P709(basicError):
         self._errorText = "Function game is missing"
 
 
-    def run(self):
+    def run(self, Squash):
         """
         Checks that the function game exists
         """

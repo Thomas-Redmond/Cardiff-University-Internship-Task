@@ -7,7 +7,7 @@ class P710(basicError):
         self._errorCode = "P710"
         self._errorText = "Number of Rows read from csv is incorrect"
 
-    def run(self):
+    def run(self, Squash):
         """
         Checks the output of Squash.readCSV has the correct number of rows
         """

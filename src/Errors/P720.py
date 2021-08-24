@@ -8,7 +8,7 @@ class P720(basicError):
         self._errorCode = "P720"
         self._errorText = "Must use the csv module"
 
-    def run(self):
+    def run(self, Squash):
         """
         Checks that csv module has been imported
         """

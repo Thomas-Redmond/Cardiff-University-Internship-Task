@@ -7,7 +7,7 @@ class P704(basicError):
         self._errorCode = "P704"
         self._errorText = "Do not round inside the function"
 
-    def run(self):
+    def run(self, Squash):
         """
         Tests that winProbability returns a unrounded value
         Checks ten times using various parameters.

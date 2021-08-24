@@ -7,7 +7,7 @@ class P711(basicError):
         self._errorCode = "P711"
         self._errorText = "Each item returned in the Tuple should be a number"
 
-    def run(self):
+    def run(self, Squash):
         """
         Checks that each item returned by Squash.readCSV is a number
         """

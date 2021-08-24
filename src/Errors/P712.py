@@ -7,7 +7,7 @@ class P712(basicError):
         self._errorCode = "P712"
         self._errorText = "The number of columns in the returned matrix is incorrect"
 
-    def run(self):
+    def run(self, Squash):
         """
         Checks that every row has the desired number of columns
         """

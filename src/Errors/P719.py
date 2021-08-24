@@ -7,7 +7,7 @@ class P719(basicError):
         self._errorCode = "P719"
         self._errorText = "Do not use Global variables"
 
-    def run(self):
+    def run(self, Squash):
         """
         Tests for global variables in Squash [Code broken]
         """
