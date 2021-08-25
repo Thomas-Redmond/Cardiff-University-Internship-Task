@@ -1,23 +1,5 @@
 # File is for generic type errors
 import ast
-import sys
-from pathlib import Path
-
-class specialCase:
-    def __init__(self):
-        self.filename = Path(sys.argv[1])
-        self.Squash = __import__(self.importModule(self.filename))
-
-    def importModule(self, filename):
-        # Tests if filename parameter exists given complete address
-        # Raises ModuleNotFoundError otherwise
-        # Adds parent directory to path and returns filename stem
-        if Path.exists(filename):
-            sys.path.insert(0, str(filename.parent))
-            return filename.stem
-        else:
-            raise ModuleNotFoundError(f"Address {filename} was not found")
-
 
 class basicError:
     def __init__(self, reportHere):

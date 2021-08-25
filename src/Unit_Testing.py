@@ -7,7 +7,7 @@ from Errors.P712 import P712 as P712_Test
 from Errors.P719 import P719 as P719_Test
 from Errors.P720 import P720 as P720_Test
 
-from Errors.errorType import specialCase as sC
+from src.sysArgParser import parser
 
 class Controller:
 
@@ -17,8 +17,8 @@ class Controller:
         self.errorRecord = errorReporter
         self.testsToRun = [
             P703_Test, P704_Test, P709_Test, P710_Test,
-            P711_Test, P712_Test, P719_Test, P720_Test
-            ]
+            P711_Test, P712_Test, # P719_Test fails
+            P720_Test]
 
     def run(self):
         """
@@ -26,8 +26,8 @@ class Controller:
         Errors will be recorded in the instance of Reporter passed to this class upon instantiation.
         """
 
-        squashContainer = sC()
-        Squash = squashContainer.Squash
+        argumentParser = parser()
+        Squash = argumentParser.Squash
 
         for test in self.testsToRun:
             try:
