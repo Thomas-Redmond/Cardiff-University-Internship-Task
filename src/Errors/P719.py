@@ -1,14 +1,13 @@
-from src.Pxxx._PluginErrorSuperClass import Squash
-from src.Pxxx._PluginErrorSuperClass import PluginError
+from Errors.errorType import basicError
 
-class P719(PluginError):
+class P719(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._Code = "P719"
-        self._Text = "Do not use Global variables"
+        self._errorCode = "P719"
+        self._errorText = "Do not use Global variables"
 
-    def run(self):
+    def run(self, Squash):
         """
         Tests for global variables in Squash [Code broken]
         """
@@ -18,6 +17,5 @@ class P719(PluginError):
             else:
                 self.success()
         except Exception as e:
-            print(f"{self._Code} Test Aborted due to unexpected error")
             print(e)
             self.fail()

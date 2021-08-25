@@ -1,15 +1,14 @@
-from src.Pxxx._PluginErrorSuperClass import Squash
-from src.Pxxx._PluginErrorSuperClass import PluginError
+from Errors.errorType import basicError
 
-class P709(PluginError):
+class P709(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._Code = "P709"
-        self._Text = "Function game is missing"
+        self._errorCode = "P709"
+        self._errorText = "Function game is missing"
 
 
-    def run(self):
+    def run(self, Squash):
         """
         Checks that the function game exists
         """
@@ -19,6 +18,5 @@ class P709(PluginError):
             else:
                 self.fail()
         except Exception as e:
-            print(f"{self._Code} Test Aborted due to unexpected error")
             print(e)
             self.fail()

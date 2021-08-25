@@ -1,12 +1,12 @@
 import sys
 import ast
-from pathlib import Path
 
 if sys.version_info < (3, 8):
     import importlib_metadata
 else:
     import importlib.metadata as importlib_metadata
 
+from pathlib import Path
 from typing import Generator
 from typing import Tuple
 from typing import Type
@@ -36,13 +36,10 @@ def addSRC2Path():
         print(f"Importing source files failed using path {newPath} given {Path(__file__).parent}")
         print(f"Traceback {e}")
 
-
-addSRC2Path() # add my code to front of path
-import src.reportError as re    # place to record errors
-import src.AST_Router as ar     # Handles AST navigation for AST errors
-import src.Unit_Testing as ut   # handles "PyTest" style errors
-
-
+addSRC2Path()
+from src import errorReporter
+from src import AST_Router
+from src import Unit_Testing
 
 class Plugin:
     name = __name__
@@ -50,9 +47,9 @@ class Plugin:
 
     def __init__(self, tree: ast.AST):
         self._tree = tree
-        self._reportError = re.Reporter()
-        self._routerAST = ar.Router(self._reportError)
-        self._testUnit = ut.Controller(self._reportError)
+        self._errorRecord = errorReporter.Reporter()
+        self._routerAST = AST_Router.Router(self._errorRecord)
+        self._testUnit = Unit_Testing.Controller(self._errorRecord)
 
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         """
@@ -60,8 +57,9 @@ class Plugin:
         Runs the various tests and yields the detected errors.
         """
 
+        print(f"Running checks")
         self._routerAST.visit(self._tree) # will send AST to begin traversal
         self._testUnit.run()
-        for [line, col, error] in self._reportError._record:
+        for [line, col, error] in self._errorRecord._record:
              yield line, col, error, "Plugin Error"
         return

@@ -1,17 +1,13 @@
-from pathlib import Path
+from Errors.errorType import basicError
 
-from src.Pxxx._PluginErrorSuperClass import Squash
-from src.Pxxx._PluginErrorSuperClass import filename
-from src.Pxxx._PluginErrorSuperClass import PluginError
-
-class P710(PluginError):
+class P710(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._Code = "P710"
-        self._Text = "Number of Rows read from csv is incorrect"
+        self._errorCode = "P710"
+        self._errorText = "Number of Rows read from csv is incorrect"
 
-    def run(self):
+    def run(self, Squash):
         """
         Checks the output of Squash.readCSV has the correct number of rows
         """
@@ -25,6 +21,5 @@ class P710(PluginError):
                 self.fail()
 
         except Exception as e:
-            print(f"{self._Code} Test Aborted due to unexpected error")
             print(e)
             self.fail()

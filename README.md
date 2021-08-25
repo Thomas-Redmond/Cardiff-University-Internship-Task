@@ -7,19 +7,25 @@ Examples such as "no need for global keyword", "return answer from function as a
 This guides presumes a venv virtual environment has already been created, and Python is called by the command line using "Python3". This may be different depending on your specific installation [try "py" or "Python"].
 
 # Virtual Environment
-Please install a virtual environment to use this Program. This will create an consist environment for the program to run in, without interfering with your main system.
+Please install a virtual environment to use this Program. This will stop module requirements from interfering with your main system.
 
-## Venv
-A virtual environment included with Python 3.
+### Venv
+A virtual environment included with Python 3. Recommended to use with this program.
 
 * *Python3 -m venv env*
   * Create a virtual environment in current working directory called "env".
 * *.\env\Scripts\activate*
   * Begin venv session
-  * Please note, with non-Windows OS the command is: *./env/Scripts/activate*
+  * Please note, for Linux OS the command is: *source ./bin/activate*
 * *deactivate*
   * End virtual environment session
 
+### Conda
+A virtual environment for MacOS, and Linux terminal(s). Alternative option to use.
+* *conda create --clone base --name ccs*
+  * Create virtual environment
+* *conda activate ccs*
+  * Begin virtual environment session
 
 ## Windows
 Starting in directory containing sub-folder created by virtual environment. We will call this folder env.  
@@ -30,6 +36,12 @@ Starting in directory containing sub-folder created by virtual environment. We w
   * Install all Python modules required to run in virtual environment. This step is only needed on the first installation.
 * *Python3 setup.py install*
   * Install the plugin
+
+# Using Plugin
+
+* *flake8 filename.py*
+  * Filename should be the absolute path to the file
+  * Example: *flake8 E:\Thomas\Documents\#Python_Developement_Project\Code_reference\Squash\squash.py*
 
 # Error List
 Error Name | Description
@@ -45,7 +57,6 @@ P711 | Convert tuples to numbers
 P712 | Handle the extra column
 P713 | Data should be sorted OR only plot points to avoid an untidy graph
 P714 | Sorting values seperately loses connection between x and y
-P715 | X - axis should be ra / rb
 P716 | Should be r_a / r_b for this match
 P717 | Should be the probability for winning the game
 P718 | Plot independant variable on x - axis

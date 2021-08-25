@@ -1,17 +1,13 @@
-from pathlib import Path
+from Errors.errorType import basicError
 
-from src.Pxxx._PluginErrorSuperClass import Squash
-from src.Pxxx._PluginErrorSuperClass import filename
-from src.Pxxx._PluginErrorSuperClass import PluginError
-
-class P711(PluginError):
+class P711(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._Code = "P711"
-        self._Text = "Each item returned in the Tuple should be a number"
+        self._errorCode = "P711"
+        self._errorText = "Each item returned in the Tuple should be a number"
 
-    def run(self):
+    def run(self, Squash):
         """
         Checks that each item returned by Squash.readCSV is a number
         """
@@ -28,6 +24,5 @@ class P711(PluginError):
                 self.success()
 
         except Exception as e:
-            print(f"{self._Code} Test Aborted due to unexpected error")
             print(e)
             self.fail()

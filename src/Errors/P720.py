@@ -1,15 +1,14 @@
 import sys
-from src.Pxxx._PluginErrorSuperClass import Squash
-from src.Pxxx._PluginErrorSuperClass import PluginError
+from Errors.errorType import basicError
 
-class P720(PluginError):
+class P720(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._Code = "P720"
-        self._Text = "Must use the csv module"
-        
-    def run(self):
+        self._errorCode = "P720"
+        self._errorText = "Must use the csv module"
+
+    def run(self, Squash):
         """
         Checks that csv module has been imported
         """
@@ -20,6 +19,5 @@ class P720(PluginError):
             else:
                 self.success()
         except Exception as e:
-            print(f"{self._Code} Test Aborted due to unexpected error")
             print(e)
             self.fail()

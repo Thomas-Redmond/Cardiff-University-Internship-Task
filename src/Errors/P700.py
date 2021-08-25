@@ -1,13 +1,15 @@
 import ast
-from src.Axxx._astErrorSuperClass import astError
+from Errors.errorType import astError
 
-class P700(astError, ast.NodeVisitor):
+class P700(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P700"
-        self._Text = "Only use the seed for debugging / testing OUTSIDE the function"
+        self._errorCode = "P700"
+        self._errorText = "Only use the seed for debugging / testing OUTSIDE the function"
+
         self.generic_visit(node)
+
 
     def visit_Call(self, node):
         """
@@ -24,6 +26,5 @@ class P700(astError, ast.NodeVisitor):
                 pass
 
         except Exception as e:
-            print(e)
             self.fail(node)
         return

@@ -1,14 +1,14 @@
 import ast
-from src.Axxx._astErrorSuperClass import astError
+from Errors.errorType import astError
 
-class P705(astError, ast.NodeVisitor):
+class P705(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P705"
-        self._Text = "Pass the filename as an argument"
+        self._errorCode = "P705"
+        self._errorText = "Pass the filename as an argument"
 
-        self.run(node)
+        self.run(node) # No need to traverse node further
 
     def run(self, node):
         """

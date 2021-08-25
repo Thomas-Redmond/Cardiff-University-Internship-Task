@@ -1,15 +1,15 @@
 import ast
-from src.Axxx._astErrorSuperClass import astError
+from Errors.errorType import astError
 
-class P714(astError, ast.NodeVisitor):
+class P714(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._Code = "P714"
-        self._Text = "Sorting separately loses connection between input/output"
+        self._errorCode = "P714"
+        self._errorText = "Sorting separately loses connection between input/output"
 
-        self.sortedDetected = 0
-        self.generic_visit(node)
+        self.sortedDetected = 0     # Keeps track of use of sorted() in file
+        self.generic_visit(node)    # Traverse Child Nodes
 
     def visit_Call(self, node):
         """
@@ -21,13 +21,9 @@ class P714(astError, ast.NodeVisitor):
             else:
                 if node.func.id == "sorted":
                     self.sortedDetected += 1
-                    print("Found sorted")
-                    if self.sortedDetected > 1:
-                        self.fail(node)
-                    else:
-                        pass
-                else:
-                    pass
+                    if self.sortedDetected > 1: self.fail(node)
+                    else: pass
+                else: pass
         except Exception as e:
             print(e)
             self.fail(node)

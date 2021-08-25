@@ -1,14 +1,13 @@
-from src.Pxxx._PluginErrorSuperClass import Squash
-from src.Pxxx._PluginErrorSuperClass import PluginError
+from Errors.errorType import basicError
 
-class P704(PluginError):
+class P704(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._Code = "P704"
-        self._Text = "Do not round inside the function"
+        self._errorCode = "P704"
+        self._errorText = "Do not round inside the function"
 
-    def run(self):
+    def run(self, Squash):
         """
         Tests that winProbability returns a unrounded value
         Checks ten times using various parameters.
@@ -27,6 +26,5 @@ class P704(PluginError):
                     # loop back round
                     pass
         except Exception as e:
-            print(f"{self._Code} Test Aborted due to unexpected error")
             print(e)
             self.fail()
