@@ -5,9 +5,9 @@ class P711(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._errorCode = "P711"
-        self._errorText = "Each item returned in the Tuple should be a number"
-        self._testData = Path("src/Errors/testData/test.csv")
+        self.errorCode = "P711"
+        self.errorText = "Each item returned in the Tuple should be a number"
+        self.testData = Path("src/Errors/testData/test.csv")
 
     def run(self, Squash):
         """
@@ -15,7 +15,7 @@ class P711(basicError):
         """
         try:
 
-            data = Squash.readCSV(self._testData)
+            data = Squash.readCSV(self.testData)
             for row in data:
                 for item in row:
                     if isinstance(item, (int, float, complex)):

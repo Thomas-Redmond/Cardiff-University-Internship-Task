@@ -5,9 +5,9 @@ class P710(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._errorCode = "P710"
-        self._errorText = "Number of Rows read from csv is incorrect"
-        self._testData = Path("src/Errors/testData/test.csv")
+        self.errorCode = "P710"
+        self.errorText = "Number of Rows read from csv is incorrect"
+        self.testData = Path("src/Errors/testData/test.csv")
 
     def run(self, Squash):
         """
@@ -16,7 +16,7 @@ class P710(basicError):
 
         try:
             desired_row_num = 5
-            data = Squash.readCSV(self._testData)
+            data = Squash.readCSV(self.testData)
             if len(data) == desired_row_num:
                 self.success()
             else:

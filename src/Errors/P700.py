@@ -5,8 +5,8 @@ class P700(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._errorCode = "P700"
-        self._errorText = "Only use the seed for debugging / testing OUTSIDE the function"
+        self.errorCode = "P700"
+        self.errorText = "Only use the seed for debugging / testing OUTSIDE the function"
 
         self.generic_visit(node)
 

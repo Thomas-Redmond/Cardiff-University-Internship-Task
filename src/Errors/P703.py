@@ -4,8 +4,8 @@ class P703(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._errorCode = "P703"
-        self._errorText = "winProbability must return a number"
+        self.errorCode = "P703"
+        self.errorText = "winProbability must return a number"
 
 
     def run(self, Squash):

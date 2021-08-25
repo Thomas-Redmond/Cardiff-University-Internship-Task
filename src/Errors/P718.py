@@ -5,10 +5,10 @@ class P718(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._errorCode = "P718"
-        self._errorText = "Plot independant variable on the x - axis"
+        self.errorCode = "P718"
+        self.errorText = "Plot independant variable on the x - axis"
 
-        self._failByDefault = True  # Guilty-until-proven-innocent
+        self.failByDefaultVar = True  # Guilty-until-proven-innocent
         self.failByDefault(node)    # Add Error to record
 
         self.generic_visit(node)    # Begin traversing child nodes

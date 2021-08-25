@@ -4,8 +4,8 @@ class P704(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._errorCode = "P704"
-        self._errorText = "Do not round inside the function"
+        self.errorCode = "P704"
+        self.errorText = "Do not round inside the function"
 
     def run(self, Squash):
         """

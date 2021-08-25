@@ -4,8 +4,8 @@ class P709(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self._errorCode = "P709"
-        self._errorText = "Function game is missing"
+        self.errorCode = "P709"
+        self.errorText = "Function game is missing"
 
 
     def run(self, Squash):

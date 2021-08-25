@@ -46,10 +46,11 @@ class Plugin:
     version = importlib_metadata.version(__name__)
 
     def __init__(self, tree: ast.AST):
-        self._tree = tree
-        self._errorRecord = errorReporter.Reporter()
-        self._routerAST = AST_Router.Router(self._errorRecord)
-        self._testUnit = Unit_Testing.Controller(self._errorRecord)
+        self.tree = tree
+        self.parser = ""
+        self.errorRecord = errorReporter.Reporter()
+        self.routerAST = AST_Router.Router(self.errorRecord)
+        self.testUnit = Unit_Testing.Controller(self.errorRecord)
 
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         """
@@ -58,8 +59,8 @@ class Plugin:
         """
 
         print(f"Running checks")
-        self._routerAST.visit(self._tree) # will send AST to begin traversal
-        self._testUnit.run()
-        for [line, col, error] in self._errorRecord._record:
+        self.routerAST.visit(self.tree) # will send AST to begin traversal
+        self.testUnit.run()
+        for [line, col, error] in self.errorRecord.record:
              yield line, col, error, "Plugin Error"
         return

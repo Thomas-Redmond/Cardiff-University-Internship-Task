@@ -15,27 +15,27 @@ class Router(ast.NodeVisitor):
     def __init__(self, errorReporter):
         # Takes instance of Error_Reporter passed by reference
         # To pass information by reference at later stages
-        self._errorRecord = errorReporter
+        self.errorRecord = errorReporter
 
     def visit_FunctionDef(self, node):
         if node.name == 'game':
-            P700_runTest = P700(self._errorRecord, node)
+            P700_runTest = P700(self.errorRecord, node)
 
         elif node.name == 'q1a':
-            P702_runTest = P702(self._errorRecord, node)
+            P702_runTest = P702(self.errorRecord, node)
 
         elif node.name == 'readCSV':
-            P705_runTest = P705(self._errorRecord, node)
+            P705_runTest = P705(self.errorRecord, node)
 
         elif node.name == 'plotWinProbabilities':
-            P713_runTest = P713(self._errorRecord, node)
-            P714_runTest = P714(self._errorRecord, node)
-            P716_runTest = P716(self._errorRecord, node)
-            P718_runTest = P718(self._errorRecord, node)
+            P713_runTest = P713(self.errorRecord, node)
+            P714_runTest = P714(self.errorRecord, node)
+            P716_runTest = P716(self.errorRecord, node)
+            P718_runTest = P718(self.errorRecord, node)
 
         elif node.name == 'winProbability':
-            P701_runTest = P701(self._errorRecord, node)
-            P717_runTest = P717(self._errorRecord, node)
+            P701_runTest = P701(self.errorRecord, node)
+            P717_runTest = P717(self.errorRecord, node)
 
         else: pass
         self.generic_visit(node)

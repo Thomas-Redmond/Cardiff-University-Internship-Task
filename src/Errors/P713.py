@@ -5,10 +5,10 @@ class P713(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self._errorCode = "P713"
-        self._errorText = "Need to sort data or only plot points"
+        self.errorCode = "P713"
+        self.errorText = "Need to sort data or only plot points"
 
-        self._failByDefault = True  # Guilty-until-proven-innocent
+        self.failByDefaultVar = True  # Guilty-until-proven-innocent
         self.failByDefault(node)    # Add Error to record
 
         self.generic_visit(node)    # Begin traversing child nodes
