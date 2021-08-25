@@ -46,7 +46,9 @@ Starting in directory containing sub-folder created by virtual environment. We w
 # Error List
 Error Name | Description
 --------------|----------------
-P700 | Random.seed() used inside the function game
+P690 | Recommended function names are not detected.
+P700 | Only use the seed for debugging / testing OUTSIDE the function
+P701 | For loop is more appropriate in this function
 P702 | Call the function game for 1a
 P703 | Return answer from winProbability as a number
 P704 | Returned answer should not be rounded
@@ -62,3 +64,14 @@ P717 | Should be the probability for winning the game
 P718 | Plot independant variable on x - axis
 P719 | Don't use global variables
 P720 | Use CSV module
+
+## Error Details
+For a more detailed description of the specific error.
+
+#### P690
+Recommended Function names are not detected.
+Test searches dir() of Squash namespace for function names: fails if any not found.
+
+#### P700
+Only use the seed for debugging / testing OUTSIDE the function.
+If random.seed called inside function 
