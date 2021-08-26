@@ -19,7 +19,6 @@ class P690(basicError):
             "readCSV",
             "plotWinProbabilities",
             "winProbability"
-
             ]
             for funcName in listOfFuncs:
                 if funcName not in dir(Squash):
