@@ -5,7 +5,6 @@ from Errors.P709 import P709
 from Errors.P710 import P710
 from Errors.P711 import P711
 from Errors.P712 import P712
-from Errors.P719 import P719
 from Errors.P720 import P720
 
 from src.sysArgParser import parser
@@ -24,7 +23,6 @@ class Controller:
             P710,   # Skip the header row in data.csv
             P711,   # Convert data.csv data tuples to numbers
             P712,   # Handle the extra column in data.csv
-            #P719,  # Don't use global variables
             P720    # Use the csv module
             ]
 

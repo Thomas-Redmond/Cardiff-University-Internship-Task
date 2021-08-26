@@ -8,6 +8,7 @@ from Errors.P714 import P714
 from Errors.P717 import P717
 from Errors.P716 import P716
 from Errors.P718 import P718
+from Errors.P719 import P719
 
 
 class Router(ast.NodeVisitor):
@@ -16,6 +17,10 @@ class Router(ast.NodeVisitor):
         # Takes instance of Error_Reporter passed by reference
         # To pass information by reference at later stages
         self.errorRecord = errorReporter
+
+    def visit_Global(self, node):
+        P719_runTest = P719(self.errorRecord, node)
+
 
     def visit_FunctionDef(self, node):
         if node.name == 'game':
