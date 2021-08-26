@@ -74,4 +74,48 @@ Test searches dir() of Squash namespace for function names: fails if any not fou
 
 #### P700
 Only use the seed for debugging / testing OUTSIDE the function.
-If random.seed called inside function 
+If random.seed called inside function
+
+#### P701
+A For loop is more appropriate for this function.
+Test searches for a for loop in use inside function "winProbability", fails if not found.
+
+#### P702
+Call the function game for 1a.
+Test whether function game is called from function q1a.
+
+#### P703
+Return the answer from winProbability as a number.
+Tests winProbability returns either an integer, float, or complex number
+
+#### P704
+Returned answer should not be rounded
+Checks by calling 10 times with various parameter, if at least one a "float" pass.
+
+#### P705
+Pass filename as an argument, do not hardcode address
+Tests that at least one parameter passed to function readCSV
+
+#### P709
+Question asked for different function name
+Tests that the function game exists
+
+#### P710
+Skip the header row from data.csv
+Using test.csv runs readCSV and compares output row length with desired row length
+
+#### P711
+Convert Tuples to numbers
+Using test.csv runs readCSV and test that each value returned is either int / float / complex
+
+#### P712
+Handle the extra column in data.csv
+Using test.csv runs readCSV and compares output column length with desired column length
+
+#### P713
+Data should be sorted OR only plot points to avoid an untidy graph
+Checks uses plot is used with setting "o" or sorted function used.
+
+#### P714
+Sorting values seperately loses connection between x and y
+If sorted function used more than once inside function fail.
