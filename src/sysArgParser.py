@@ -8,8 +8,25 @@ class parser:
     # Such as importing Squash from path given by user
 
     def __init__(self):
-        self.filename = Path(sys.argv[1]) # Get address of Squash given by user in command line
+        self.filename = self.getFilenameFromSysArg() # Get address of Squash given by user in command line
         self.Squash = __import__(self.importModule(self.filename)) # Import Squash and store
+
+
+    def getFilenameFromSysArg(self):
+        try:
+            for parameter in sys.argv[1:]: # skip flake8 command
+                if Path(parameter).exists():
+                    return Path(parameter)
+                else:
+                    pass
+
+            raise UserWarning()
+
+        except UserWarning as e:
+            raise UserWarning(f"No valid files were given") # exception should always be raised
+        except Exception as e:
+            print(e)
+
 
     def importModule(self, filename):
         # Presuming filename is complete address,

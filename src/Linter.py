@@ -40,6 +40,7 @@ addSRC2Path()
 from src import errorReporter
 from src import AST_Router
 from src import Unit_Testing
+from src import sysArgParser
 
 class Plugin:
     name = __name__
@@ -47,7 +48,7 @@ class Plugin:
 
     def __init__(self, tree: ast.AST):
         self.tree = tree
-        self.parser = ""
+        self.parser = sysArgParser.parser()
         self.errorRecord = errorReporter.Reporter()
         self.routerAST = AST_Router.Router(self.errorRecord)
         self.testUnit = Unit_Testing.Controller(self.errorRecord)
@@ -58,7 +59,6 @@ class Plugin:
         Runs the various tests and yields the detected errors.
         """
 
-        print(f"Running checks")
         self.routerAST.visit(self.tree) # will send AST to begin traversal
         self.testUnit.run()
         for [line, col, error] in self.errorRecord.record:
