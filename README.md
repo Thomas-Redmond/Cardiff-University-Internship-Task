@@ -39,9 +39,10 @@ Starting in directory containing sub-folder created by virtual environment. We w
 
 # Using Plugin
 
-* *flake8 filename.py*
+* *flake8 filename.py --enable-extensions=P*
   * Filename should be the absolute path to the file
-  * Example: *flake8 E:\Thomas\Documents\#Python_Developement_Project\Code_reference\Squash\squash.py*
+  * Plugin needs to be enabled on command line otherwise it will be skipped
+  * Example: *flake8 E:\Thomas\Documents\#Python_Developement_Project\Code_reference\Squash\squash.py --enable-extensions=P*
 
 # Error List
 Error Name | Description
