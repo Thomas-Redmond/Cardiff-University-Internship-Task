@@ -1,5 +1,5 @@
 import ast
-from Errors.errorType import astError
+from src.Errors.errorType import astError
 
 
 class P717(astError):

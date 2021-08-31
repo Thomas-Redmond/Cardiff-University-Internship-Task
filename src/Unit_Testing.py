@@ -1,11 +1,11 @@
-from Errors.P690 import P690
-from Errors.P703 import P703
-from Errors.P704 import P704
-from Errors.P709 import P709
-from Errors.P710 import P710
-from Errors.P711 import P711
-from Errors.P712 import P712
-from Errors.P720 import P720
+from src.Errors.P690 import P690
+from src.Errors.P703 import P703
+from src.Errors.P704 import P704
+from src.Errors.P709 import P709
+from src.Errors.P710 import P710
+from src.Errors.P711 import P711
+from src.Errors.P712 import P712
+from src.Errors.P720 import P720
 
 from src.sysArgParser import parser
 

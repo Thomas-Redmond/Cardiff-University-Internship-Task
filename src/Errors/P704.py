@@ -1,4 +1,4 @@
-from Errors.errorType import basicError
+from src.Errors.errorType import basicError
 
 class P704(basicError):
 

@@ -14,3 +14,11 @@
 * When deciphering AST nodes, use *print(f"Node is: {ast.dump(node)}")* often
   * This prints out the text-based description of the node to identify type and attributes.
   * Further nodes can be looked at by referring to the original ie node.func
+
+#### Known Issues
+* Pathing problems
+  * setup.cfg points to the start file and the folder src.
+  * Linter file adds itself to path
+  * to import other files in src folder, the __init__ adds it to path.
+  * __init__ exists in src/Errors however is empty
+  * Pathing could be a lot nicer in general

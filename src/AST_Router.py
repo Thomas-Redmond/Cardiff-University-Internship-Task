@@ -1,14 +1,14 @@
 import ast
-from Errors.P700 import P700
-from Errors.P701 import P701
-from Errors.P702 import P702
-from Errors.P705 import P705
-from Errors.P713 import P713
-from Errors.P714 import P714
-from Errors.P717 import P717
-from Errors.P716 import P716
-from Errors.P718 import P718
-from Errors.P719 import P719
+from src.Errors.P700 import P700
+from src.Errors.P701 import P701
+from src.Errors.P702 import P702
+from src.Errors.P705 import P705
+from src.Errors.P713 import P713
+from src.Errors.P714 import P714
+from src.Errors.P717 import P717
+from src.Errors.P716 import P716
+from src.Errors.P718 import P718
+from src.Errors.P719 import P719
 
 
 class Router(ast.NodeVisitor):

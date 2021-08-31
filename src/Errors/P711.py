@@ -1,5 +1,5 @@
 from pathlib import Path
-from Errors.errorType import basicError
+from src.Errors.errorType import basicError
 
 class P711(basicError):
 
