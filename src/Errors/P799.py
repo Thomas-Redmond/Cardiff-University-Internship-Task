@@ -1,10 +1,10 @@
 from src.Errors.errorType import basicError
 
-class P690(basicError):
+class P799(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self.errorCode = "P690"
+        self.errorCode = "P799"
         self.errorText = "Recommended Function names not detected. See README.md for details"
 
     def run(self, Squash):
