@@ -42,12 +42,11 @@ Starting in directory containing sub-folder created by virtual environment. We w
 * *flake8 filename.py --enable-extensions=P*
   * Filename should be the absolute path to the file
   * Plugin needs to be enabled on command line otherwise it will be skipped
-  * Example: *flake8 E:\Thomas\Documents\#Python_Developement_Project\Code_reference\Squash\squash.py --enable-extensions=P*
+  * Example: *flake8 E:\Thomas\Documents\#Python_Developement_Project\Code_reference\Squash\squash.py --enable-extensions=P7*
 
 # Error List
 Error Name | Description
 --------------|----------------
-P690 | Recommended function names are not detected.
 P700 | Only use the seed for debugging / testing OUTSIDE the function
 P701 | For loop is more appropriate in this function
 P702 | Call the function game for 1a
@@ -65,6 +64,7 @@ P717 | Should be the probability for winning the game
 P718 | Plot independant variable on x - axis
 P719 | Don't use global variables
 P720 | Use CSV module
+P799 | Recommended function names are not detected. Plugin aborted
 
 ## Error Details
 For a more detailed description of the specific error.
@@ -91,7 +91,8 @@ Tests winProbability returns either an integer, float, or complex number
 
 #### P704
 Returned answer should not be rounded
-Checks by calling 10 times with various parameter, if at least one a "float" pass.
+Checks by calling 10 times with various parameter, converts result to int and subtracted from self.
+If a remainder exists at least once, test is passed.
 
 #### P705
 Pass filename as an argument, do not hardcode address
