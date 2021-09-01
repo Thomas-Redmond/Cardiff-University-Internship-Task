@@ -14,13 +14,14 @@ class P704(basicError):
         If float found then success
         """
         # Runs 10 times, checking against a vareity of parameters
-        # fails test if no Float values are found in all ten attempts
+        # fails test if no remainder found in at least one int(result) - result
         try:
             for i in range(10):
-                if (type(Squash.winProbability(i, 1)) == "float"):
+                returnedValue = Squash.winProbability(i, 1)
+                if (returnedValue - int(returnedValue) > 0):
                     self.success()
                     i = 11
-                elif (type(Squash.winProbability(i, 1)) != "float") and i == 10:
+                elif (returnedValue - int(returnedValue) <= 0) and (i == 10):
                     self.fail()
                 else:
                     # loop back round

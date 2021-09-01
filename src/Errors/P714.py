@@ -10,6 +10,7 @@ class P714(astError):
 
         self.sortedDetected = 0     # Keeps track of use of sorted() in file
         self.generic_visit(node)    # Traverse Child Nodes
+        print(f"{self.errorCode} running test")
 
     def visit_Call(self, node):
         """

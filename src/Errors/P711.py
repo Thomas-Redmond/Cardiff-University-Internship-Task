@@ -23,7 +23,7 @@ class P711(basicError):
                     else:
                         self.fail()
                         return
-                self.success()
+            self.success()
 
         except Exception as e:
             print(e)
