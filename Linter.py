@@ -34,8 +34,10 @@ class Plugin:
         Runs the various tests and yields the detected errors.
         """
         print(f"Running Linter tests")
-        self.routerAST.visit(self.tree) # will send AST to begin traversal
-        self.testUnit.run()
+
+        self.testUnit.run() # Run pytest style tests, first being P799
+        self.routerAST.visit(self.tree) # Start AST node traversal
+
         for [line, col, error] in self.errorRecord.record:
-             yield line, col, error, "Plugin Error"
+             yield line, col, error, "Plugin Error" # output all errors in program
         return
