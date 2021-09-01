@@ -20,6 +20,7 @@ from src import sysArgParser
 class Plugin:
     name = __name__
     version = importlib_metadata.version(__name__)
+    off_by_default = True
 
     def __init__(self, tree: ast.AST):
         self.tree = tree
@@ -33,7 +34,10 @@ class Plugin:
         Starts the Plugin.
         Runs the various tests and yields the detected errors.
         """
-        print(f"Running Linter tests")
+        print("------------------")
+        print(f"{self.name} {self.version} Installed") # states Plugin installed - does not indicate whether user has allowed use
+        print(f"To use: flake8 absolute/path/to/filename.py --enable-extensions=P7")
+        print("------------------")
 
         self.testUnit.run() # Run pytest style tests, first being P799
         self.routerAST.visit(self.tree) # Start AST node traversal
