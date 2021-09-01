@@ -1,4 +1,3 @@
-from src.Errors.P690 import P690
 from src.Errors.P703 import P703
 from src.Errors.P704 import P704
 from src.Errors.P709 import P709
@@ -6,6 +5,7 @@ from src.Errors.P710 import P710
 from src.Errors.P711 import P711
 from src.Errors.P712 import P712
 from src.Errors.P720 import P720
+from src.Errors.P799 import P799
 
 from src.sysArgParser import parser
 
@@ -16,7 +16,9 @@ class Controller:
         # allows this class to utilise its functions
         self.errorRecord = errorReporter
         self.testsToRun = [
-            P690,   #
+            P799,   # Special Case. Tests that required function names are used
+                    # if failed, raises error and ends plugin run
+
             P703,   # Return answer from WinProbability as a number
             P704,   # Returned answer should not be rounded
             P709,   # Question asked for a different function name ('game')

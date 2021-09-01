@@ -21,7 +21,6 @@ class basicError:
 
     def success(self):
         # remove errorByDefault if true otherwise does nothing
-        print(f"{self.errorCode} successful test performed")
         if self.failByDefaultVar == True:
             self.errorRecord.removeDefaultError()
         else: pass
