@@ -121,3 +121,37 @@ Checks uses plot is used with setting "o" or sorted function used.
 #### P714
 Sorting values seperately loses connection between x and y
 If sorted function used more than once inside function fail.
+
+#### P716
+Should be r_a / r_b for this match
+Saves first and 2nd variable names used in for loop
+Then later checks that operation involves first_var / second_var.
+
+#### P717
+Should be probability of winning a game
+Test checks if function game is called in function winProbability
+
+#### P718
+Plot independant variable on the x - axis
+Checks for function call of plt.plot(), and tests if variables used are at loc 0: "x" and loc 1: "y"
+
+#### P719
+Do not use Global
+Global keyword encountered during AST traversal
+
+#### P720
+Must use the csv module
+Determines if "csv" in sys.modules
+
+#### P799
+Recommended Function names not detected. See README.md for details
+Checks that the function names used in the other tests are in use.
+Function names:
+  englishgame
+  game
+  q1a
+  readCSV
+  plotWinProbabilities
+  winProbability
+
+These names are required to run the plugins tests - tests would otherwise not report an error result if they were ignored

@@ -18,7 +18,6 @@ class Controller:
         self.testsToRun = [
             P799,   # Special Case. Tests that required function names are used
                     # if failed, raises error and ends plugin run
-
             P703,   # Return answer from WinProbability as a number
             P704,   # Returned answer should not be rounded
             P709,   # Question asked for a different function name ('game')
@@ -34,8 +33,8 @@ class Controller:
         Errors will be recorded in the instance of Reporter passed to this class upon instantiation.
         """
 
-        argumentParser = parser()
-        Squash = argumentParser.Squash
+        argumentParser = parser()           # checks whether Squash address has been given correctly
+        Squash = argumentParser.Squash      # raises exception if not
 
         for test in self.testsToRun:
             try:
