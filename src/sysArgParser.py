@@ -13,6 +13,10 @@ class parser:
 
 
     def getFilenameFromSysArg(self):
+        # Take 2nd parameter of Flake8 console command
+        # Confirm para is ABSOLUTE file address
+        # Otherwise trigger user warning
+
         try:
             for parameter in sys.argv[1:]: # skip flake8 command
                 if Path(parameter).exists():
@@ -32,6 +36,7 @@ class parser:
         # Presuming filename is complete address,
         # Adds parent directory to path and returns filename stem.
         # Raises ModuleNotFoundError otherwise
+        
         if Path.exists(filename):
             sys.path.insert(0, str(filename.parent))
             return filename.stem

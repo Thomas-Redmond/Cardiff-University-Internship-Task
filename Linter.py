@@ -12,28 +12,26 @@ from typing import Tuple
 from typing import Type
 from typing import Any
 
-from src import errorReporter
-from src import AST_Router
-from src import Unit_Testing
-from src import sysArgParser
+import src # handles import of src/*.py files
 
 class Plugin:
+    # Flake8 Plugin variables
+
     name = __name__
     version = importlib_metadata.version(__name__)
     off_by_default = True
 
     def __init__(self, tree: ast.AST):
         self.tree = tree
-        self.parser = sysArgParser.parser()
-        self.errorRecord = errorReporter.Reporter()
-        self.routerAST = AST_Router.Router(self.errorRecord)
-        self.testUnit = Unit_Testing.Controller(self.errorRecord)
+        self.parser = src.parser()
+        self.errorRecord = src.Reporter()
+        self.routerAST = src.Router(self.errorRecord)
+        self.testUnit = src.Controller(self.errorRecord)
 
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
-        """
-        Starts the Plugin.
-        Runs the various tests and yields the detected errors.
-        """
+        # Starts the Plugin.
+        # Runs the various tests and yields the detected errors.
+
         print("------------------")
         print(f"{self.name} {self.version} Installed") # states Plugin installed - does not indicate whether user has allowed use
         print(f"To use: flake8 absolute/path/to/filename.py --enable-extensions=P7")

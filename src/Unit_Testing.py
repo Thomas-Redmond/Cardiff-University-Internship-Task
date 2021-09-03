@@ -15,6 +15,7 @@ class Controller:
     def __init__(self, errorReporter):
         # pass Error_Reporter instance by reference
         # allows this class to utilise its functions
+
         self.errorRecord = errorReporter
         self.testsToRun = [
             P799,   # Special Case. Tests that required function names are used
@@ -30,10 +31,9 @@ class Controller:
             ]
 
     def run(self):
-        """
-        For every test in self.sToRun create an instance and run that test.
-        Errors will be recorded in the instance of Reporter passed to this class upon instantiation.
-        """
+
+        # For every test in self.sToRun create an instance and run that test.
+        # Errors will be recorded in the instance of Reporter passed to this class upon instantiation.
 
         argumentParser = parser()           # checks whether Squash address has been given correctly
         Squash = argumentParser.Squash      # raises exception if not
