@@ -30,7 +30,7 @@
 * Unit_Testing Controller object is run, with tests performed.
   * First test checks for functions used in throughout testing existence - if they are not there most of the test will not work and program will catch loads of errors
     * All good proceeds with other tests, otherwise raises error
-  * Tests are [basic] type, with very similar code so are added to a list, and cycled through using a for loop 
+  * Tests are [basic] type, with very similar code so are added to a list, and cycled through using a for loop
 
   * AST_Router is called using imported Ast_NodeVisitor class (handles moving through an AST using special functions which can be overridden)
     * Class redirects to errors when specific function names are found (as often errors are only relevant to a specific function)
@@ -40,9 +40,7 @@
     * in which case for consistency Error class should still be created - and should report error in __init__ and NOTHING else
       * Example is P720.py
 
-
-
-
+* Linter.py then reports all errors as a Generator by running through each record in error reporter
 
 
 ### Development Tips
@@ -73,3 +71,5 @@
   * There should be a way to target subfolders, currently unknown
 
 * Unit_Testing errors do not report location of where detected [line number, col offset] format
+
+* All Pycodestyle checks are still in use, add to config ignore if they should be completely avoided

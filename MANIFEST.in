@@ -1,1 +1,1 @@
-global-include *.csv
+include src/Errors/testData/*.csv
