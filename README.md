@@ -64,6 +64,7 @@ P717 | Should be the probability for winning the game
 P718 | Plot independant variable on x - axis
 P719 | Don't use global variables
 P720 | Use CSV module
+P721 | Use CSV module
 P799 | Recommended function names are not detected. Plugin aborted
 
 ## Error Details
@@ -105,14 +106,17 @@ Tests that the function game exists
 #### P710
 Skip the header row from data.csv
 Using test.csv runs readCSV and compares output row length with desired row length
+Test.csv is a stored file in this program
 
 #### P711
 Convert Tuples to numbers
 Using test.csv runs readCSV and test that each value returned is either int / float / complex
+Test.csv is a stored file in this program
 
 #### P712
 Handle the extra column in data.csv
 Using test.csv runs readCSV and compares output column length with desired column length
+Test.csv is a stored file in this program
 
 #### P713
 Data should be sorted OR only plot points to avoid an untidy graph
@@ -133,7 +137,7 @@ Test checks if function game is called in function winProbability
 
 #### P718
 Plot independant variable on the x - axis
-Checks for function call of plt.plot(), and tests if variables used are at loc 0: "x" and loc 1: "y"
+Checks for function call of matplotlib.plot(), and tests if variables used are at loc 0: "x" and loc 1: "y"
 
 #### P719
 Do not use Global
@@ -141,7 +145,11 @@ Global keyword encountered during AST traversal
 
 #### P720
 Must use the csv module
-Determines if "csv" in sys.modules
+Determines if "csv" in sys.modules - *import module as newName* may interfere with other tests
+
+#### P721
+Must use the matplotlib module
+Determines if "matplotlib" in sys.modules - *import module as newName* may interfere with other tests
 
 #### P799
 Recommended Function names not detected. See README.md for details

@@ -16,7 +16,7 @@ class P718(astError):
 
     def visit_Call(self, node):
         if isinstance(node.func, ast.Attribute):
-            if node.func.value.id == "plt" and node.func.attr == "plot": # plt.plot()
+            if node.func.value.id == "matplotlib" and node.func.attr == "plot": # plt.plot()
                 if node.args[0].id == "x" and node.args[1].id == "y":
                     self.success()
                     return  # End Test

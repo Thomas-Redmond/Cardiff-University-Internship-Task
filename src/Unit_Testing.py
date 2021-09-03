@@ -5,6 +5,7 @@ from src.Errors.P710 import P710
 from src.Errors.P711 import P711
 from src.Errors.P712 import P712
 from src.Errors.P720 import P720
+from src.Errors.P721 import P721
 from src.Errors.P799 import P799
 
 from src.sysArgParser import parser
@@ -24,7 +25,8 @@ class Controller:
             P710,   # Skip the header row in data.csv
             P711,   # Convert data.csv data tuples to numbers
             P712,   # Handle the extra column in data.csv
-            P720    # Use the csv module
+            P720,    # Use the csv module
+            P721,    # Use the matplolib module
             ]
 
     def run(self):
