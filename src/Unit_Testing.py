@@ -25,8 +25,8 @@ class Controller:
             P710,   # Skip the header row in data.csv
             P711,   # Convert data.csv data tuples to numbers
             P712,   # Handle the extra column in data.csv
-            P720,    # Use the csv module
-            P721,    # Use the matplolib module
+            P720,   # Use the csv module
+            P721,   # Use the matplolib module
             ]
 
     def run(self):
