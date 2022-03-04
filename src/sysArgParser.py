@@ -9,7 +9,7 @@ class parser:
 
     def __init__(self):
         self.filename = self.getFilenameFromSysArg() # Get address of Squash given by user in command line
-        self.Squash = __import__(self.importModule(self.filename)) # Import Squash and store
+        self.TestThisFile = __import__(self.importModule(self.filename)) # Import File to Test and store
 
 
     def getFilenameFromSysArg(self):
@@ -36,7 +36,7 @@ class parser:
         # Presuming filename is complete address,
         # Adds parent directory to path and returns filename stem.
         # Raises ModuleNotFoundError otherwise
-        
+
         if Path.exists(filename):
             sys.path.insert(0, str(filename.parent))
             return filename.stem

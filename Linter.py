@@ -26,7 +26,7 @@ class Plugin:
         self.parser = src.parser()
         self.errorRecord = src.Reporter()
         self.routerAST = src.Router(self.errorRecord)
-        self.testUnit = src.Controller(self.errorRecord)
+        self.testUnit = src.(self.errorRecord)
 
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         # Starts the Plugin.
