@@ -1,16 +1,14 @@
 import ast
 
-from src.Errors.P700 import P700
-from src.Errors.P701 import P701
-from src.Errors.P702 import P702
-from src.Errors.P705 import P705
-from src.Errors.P713 import P713
-from src.Errors.P714 import P714
-from src.Errors.P717 import P717
-from src.Errors.P716 import P716
-from src.Errors.P718 import P718
-from src.Errors.P719 import P719
+# Question 1 + 2
+from src.Errors.RP01a00 import RP01a00  # No to global
+from src.Errors.RP01a01 import RP01a01  # For loop better here
+from src.Errors.RP01a02 import RP01a02  # Only one arg
+from src.Errors.RP01a03 import RP01a03  # There should be args
+from src.Errors.RP01a04 import RP01a04  # Use append on list
 
+# Question 2 only
+from src.Errors.RP02a05 import Rp02a05  # Recursive Check
 
 class Router(ast.NodeVisitor):
 
@@ -23,35 +21,29 @@ class Router(ast.NodeVisitor):
     def visit_Global(self, node):
         # During AST traversal if "global" keyword encountered
 
-        P719_runTest = P719(self.errorRecord, node)
+        RP01a00(self.errorRecord, node)
 
 
     def visit_FunctionDef(self, node):
         # Durning AST Traversal if a function x(para1, para2) reached
 
-        if node.name == 'game':
-            # Test only interested on game namespace
-            P700_runTest = P700(self.errorRecord, node)
+        if node.name == 'program':
+            # Test only interested on program namespace
+            RP01a02(self.errorRecord, node) # Check arg list
+            RP01a03(self.errorRecord, node) # Check there exists args
 
-        elif node.name == 'q1a':
-            # Test only interested on q1a namespace
-            P702_runTest = P702(self.errorRecord, node)
+        elif node.name == 'listParser':
+            # Test only interested on listParser namespace
+            RP01a01(self.errorRecord, node)
+            RP01a04(self.errorRecord, node)
 
-        elif node.name == 'readCSV':
-            # Test only interested on readCSV namespace
-            P705_runTest = P705(self.errorRecord, node)
+        elif node.name == 'stringParser':
+            # Test only interested on stringParser namespace
 
-        elif node.name == 'plotWinProbabilities':
-            # Test only interested on plotWinProbabilities namespace
-            P713_runTest = P713(self.errorRecord, node)
-            P714_runTest = P714(self.errorRecord, node)
-            P716_runTest = P716(self.errorRecord, node)
-            P718_runTest = P718(self.errorRecord, node)
 
-        elif node.name == 'winProbability':
-            # Test only interested on winProbability namespace
-            P701_runTest = P701(self.errorRecord, node)
-            P717_runTest = P717(self.errorRecord, node)
+        elif node.name == 'intParser':
+            # Test only interested on intParser namespace
+
 
         else: pass
         self.generic_visit(node)

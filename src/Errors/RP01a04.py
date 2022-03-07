@@ -1,11 +1,11 @@
 import ast
 from src.Errors.errorType import astError
 
-class Test(astError):
+class RP01a04(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self.errorCode = "A005"
+        self.errorCode = "RP01a04"
         self.errorText = "Use append for adding to lists"
 
         self.failByDefaultVar = True  # Guilty-until-proven-innocent

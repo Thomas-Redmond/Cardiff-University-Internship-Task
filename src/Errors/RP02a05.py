@@ -1,11 +1,11 @@
 import ast
 from src.Errors.errorType import astError
 
-class Test(astError):
+class RP02a05(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self.errorCode = "A004"
+        self.errorCode = "RP02a05"
         self.errorText = "Best practise is to make the function recursive"
 
         self.failByDefaultVar = True  # Guilty-until-proven-innocent

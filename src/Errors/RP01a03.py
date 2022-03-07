@@ -1,11 +1,11 @@
 import ast
 from src.Errors.errorType import astError
 
-class Test(astError):
+class RP01a03(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self.errorCode = "A003"
+        self.errorCode = "RP01a03"
         self.errorText = "Function should take an argument"
 
         self.run(node) # No need to traverse node further

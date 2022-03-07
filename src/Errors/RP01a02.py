@@ -1,11 +1,11 @@
 import ast
 from src.Errors.errorType import astError
 
-class Test(astError):
+class RP01a02(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self.errorCode = "A002"
+        self.errorCode = "RP01a02"
         self.errorText = "There should only be one argument"
 
         self.run(node) # No need to traverse node further

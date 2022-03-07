@@ -1,10 +1,10 @@
 from src.Errors.errorType import basicError
 
-class Test(basicError):
+class RP01u06(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self.errorCode = "U000"
+        self.errorCode = "RP01u06"
         self.errorText = "Recommended Function names not in use"
 
     def run(self, TestThisFile):

@@ -1,21 +1,20 @@
 from pathlib import Path
 from src.Errors.errorType import basicError
 
-class RP02u11(basicError):
+class RP01u12(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self.errorCode = "RP02u11"
-        self.errorText = "Test 2 dimensional list GOOD input [['9J4B72q']] expect [9, 4, 7, 2]"
-        #self.testData = Path("src/Errors/testData/test.csv")
+        self.errorCode = "RP01u12"
+        self.errorText = "Returns -1 on input of '1'"
 
     def run(self, TestThisFile):
         """
-        Test 2 dimensional list GOOD input [["9J4B72q"]] expect [9, 4, 7, 2]
+        Tests input of parameter 1 (type string)
         """
         try:
-            result = TestThisFile.program([['9J4B72q']])
-            if result == [9, 4, 7, 2]:
+            result = TestThisFile.program('1')
+            if result != -1:
                 self.success()
                 return
             else:

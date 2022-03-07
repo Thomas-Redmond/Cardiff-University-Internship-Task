@@ -1,11 +1,11 @@
 from pathlib import Path
 from src.Errors.errorType import basicError
 
-class Test(basicError):
+class RP01u10(basicError):
 
     def __init__(self, reportHere):
         super().__init__(reportHere)
-        self.errorCode = "U004"
+        self.errorCode = "RP01u10"
         self.errorText = "Check Output is -1 given bad input"
         #self.testData = Path("src/Errors/testData/test.csv")
 
