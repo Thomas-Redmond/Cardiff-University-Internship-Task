@@ -29,5 +29,6 @@ class RP02a05(astError):
                 pass
 
         except Exception as e:
-            self.fail(node)
+            print(e)
+            #self.fail(node)
         return

@@ -15,11 +15,11 @@ class RP01a02(astError):
         Check the number of parameters is equal to 1
         """
         try:
-            if len(node.args.args) > 1: # testing number of parameters is at least 1
-                self.success()
-            else:
+            if len(node.args.args) >= 2: # testing number of parameters is at least 1
                 self.fail(node)
+            else:
+                self.success()
         except Exception as e:
             print(e)
-            self.fail(node)
+            #self.fail(node)
         return

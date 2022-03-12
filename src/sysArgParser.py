@@ -9,7 +9,7 @@ class parser:
 
     def __init__(self):
         self.filename = self.getFilenameFromSysArg() # Get address of Squash given by user in command line
-        self.TestThisFile = __import__(self.importModule(self.filename)) # Import File to Test and store
+        self.Squash = __import__(self.importModule(self.filename)) # Import File to Test and store
 
 
     def getFilenameFromSysArg(self):

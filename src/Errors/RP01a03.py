@@ -15,11 +15,11 @@ class RP01a03(astError):
         Fail if there is no arguments for the function
         """
         try:
-            if len(node.args.args) < 1: # testing number of parameters is at least 1
+            if len(node.args.args) >= 1: # testing number of parameters is at least 1
                 self.success()
             else:
                 self.fail(node)
         except Exception as e:
             print(e)
-            self.fail(node)
+            #self.fail(node)
         return

@@ -20,4 +20,4 @@ class RP01a01(astError):
 
         except Exception as e:
             print(e)
-            self.fail(node)
+            #self.fail(node)

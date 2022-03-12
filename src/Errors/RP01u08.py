@@ -7,7 +7,6 @@ class RP01u08(basicError):
         super().__init__(reportHere)
         self.errorCode = "RP01u08"
         self.errorText = "Check Output is type list given GOOD input"
-        #self.testData = Path("src/Errors/testData/test.csv")
 
     def run(self, TestThisFile):
         """
@@ -24,4 +23,4 @@ class RP01u08(basicError):
 
         except Exception as e:
             print(e)
-            self.fail()
+            #self.fail()

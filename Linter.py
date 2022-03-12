@@ -19,14 +19,14 @@ class Plugin:
 
     name = __name__
     version = importlib_metadata.version(__name__)
-    off_by_default = True
+    #off_by_default = True
 
     def __init__(self, tree: ast.AST):
         self.tree = tree
         self.parser = src.parser()
         self.errorRecord = src.Reporter()
         self.routerAST = src.Router(self.errorRecord)
-        self.testUnit = src.(self.errorRecord)
+        self.testUnit = src.ControllerV2(self.errorRecord)
 
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         # Starts the Plugin.

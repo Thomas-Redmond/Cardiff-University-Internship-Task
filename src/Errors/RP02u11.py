@@ -24,4 +24,4 @@ class RP02u11(basicError):
 
         except Exception as e:
             print(e)
-            self.fail()
+            #self.fail()
