@@ -85,7 +85,7 @@ class ControllerV2:
                 elif type == 'type':
                     self.runTypeTests(errorCode, input, expected)
                 else:
-                    print("Error")
+                    print(f"{type} value not valid")
 
 
                 #if (self.TestMe.program(input) != expected):
