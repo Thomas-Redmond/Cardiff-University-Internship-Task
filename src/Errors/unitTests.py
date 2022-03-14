@@ -2,7 +2,7 @@ from src.sysArgParser import parser
 import csv
 from pathlib import Path
 
-class ControllerV2:
+class TestCases:
 
     def __init__(self, errorReporter):
         # pass Error_Reporter instance by reference
@@ -40,8 +40,8 @@ class ControllerV2:
 
                 self.testData.append([testID, testType, input, output])
 
-        argumentParser = parser() # checks whether Squash address has been given correctly
-        self.TestMe = argumentParser.Squash  # raises exception if not
+        argumentParser = parser() # checks whether FileToTest address has been given correctly
+        self.TestMe = argumentParser.FileToTest  # raises exception if not
 
     def parseSingleValue(self, inp):
         # If designated str remove ` char and return

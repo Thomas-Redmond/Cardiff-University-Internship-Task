@@ -5,11 +5,11 @@ from pathlib import Path
 
 class parser:
     # Handles system arguments
-    # Such as importing Squash from path given by user
+    # Such as importing FileToTest from path given by user
 
     def __init__(self):
-        self.filename = self.getFilenameFromSysArg() # Get address of Squash given by user in command line
-        self.Squash = __import__(self.importModule(self.filename)) # Import File to Test and store
+        self.filename = self.getFilenameFromSysArg() # Get address of FileToTest given by user in command line
+        self.FileToTest = __import__(self.importModule(self.filename)) # Import File to Test and store
 
 
     def getFilenameFromSysArg(self):
