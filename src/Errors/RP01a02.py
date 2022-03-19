@@ -6,7 +6,7 @@ class RP01a02(astError):
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
         self.errorCode = "RP01a02"
-        self.errorText = "There should only be one argument"
+        self.errorText = "There should only be one argument for function program"
 
         self.run(node) # No need to traverse node further
 

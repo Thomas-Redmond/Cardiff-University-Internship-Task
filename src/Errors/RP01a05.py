@@ -6,19 +6,20 @@ class RP01a05(astError):
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
         self.errorCode = "RP01a05"
-        self.errorText = "Recommended Function names not in use"
+        self.errorText = "Function parseList should take 2 arguments"
 
-        self.failByDefaultVar = True  # Guilty-until-proven-innocent
-        self.failByDefault(node)    # Add Error to record
+        self.run(node) # No need to traverse node further
 
-        self.generic_visit(node)    # Begin traversing child nodes
-
-    def visit_FunctionDef(self, node):
+    def run(self, node):
+        """
+        Fail if there is no arguments for the function
+        """
         try:
-            if node.name == "program":
+            if len(node.args.args) >= 2: # testing number of parameters is at least 2
                 self.success()
-            return
-
+            else:
+                self.fail(node)
         except Exception as e:
             print(e)
             #self.fail(node)
+        return

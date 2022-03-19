@@ -15,7 +15,10 @@ class funcCheck:
 
         try:
             listOfFuncs = [
-            "program"
+            "program",
+            "parseList",
+            "parseStr",
+            "parseInt"
             ]
 
             for funcName in listOfFuncs:
