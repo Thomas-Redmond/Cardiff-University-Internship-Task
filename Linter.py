@@ -19,14 +19,18 @@ class Plugin:
 
     name = __name__
     version = importlib_metadata.version(__name__)
-    off_by_default = True
+    #off_by_default = True
 
     def __init__(self, tree: ast.AST):
+
         self.tree = tree
         self.parser = src.parser()
         self.errorRecord = src.Reporter()
+
+        # Various types of tests
+        self.funcCheck = src.funcCheck(self.errorRecord)
         self.routerAST = src.Router(self.errorRecord)
-        self.testUnit = src.Controller(self.errorRecord)
+        self.testUnit = src.TestCases(self.errorRecord)
 
     def run(self) -> Generator[Tuple[int, int, str, Type[Any]], None, None]:
         # Starts the Plugin.
@@ -34,12 +38,16 @@ class Plugin:
 
         print("------------------")
         print(f"{self.name} {self.version} Installed") # states Plugin installed - does not indicate whether user has allowed use
-        print(f"To use: flake8 absolute/path/to/filename.py --enable-extensions=P7")
+        print(f"To use: flake8 absolute/path/to/filename.py")
         print("------------------")
 
-        self.testUnit.run() # Run pytest style tests, first being P799
-        self.routerAST.visit(self.tree) # Start AST node traversal
+        if self.funcCheck.activated != True:
+            # If required function names not in use tests will not work
+            # Other tests are only possible if all function names in use
+
+            self.testUnit.run() # Run pytest style tests, first being P799
+            self.routerAST.visit(self.tree) # Start AST node traversal
 
         for [line, col, error] in self.errorRecord.record:
-             yield line, col, error, "Plugin Error" # output all errors in program
+            yield line, col, error, "Plugin Error" # output all errors in program
         return

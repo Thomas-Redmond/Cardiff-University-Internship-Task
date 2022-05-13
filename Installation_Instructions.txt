@@ -1,0 +1,20 @@
+This is the installation instructions to be used with the Research Project 2022 in the Abcws labs
+
+
+2.
+Open command line
+
+3.
+Navigate in command line to the directory you wish to use
+Example, using the Desktop
+	cd /d E:\Thomas\Desktop
+
+4.
+Use the following commanding to download:
+git clone https://git.cardiff.ac.uk/c1908527/research-project-y-3
+
+5.
+Enter your university username and password to get authorisation
+
+6.
+Using command line, 

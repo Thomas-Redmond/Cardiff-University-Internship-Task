@@ -1,19 +1,18 @@
 import ast
 from src.Errors.errorType import astError
 
-class P705(astError):
+class RP01a03(astError):
 
     def __init__(self, reportHere, node):
         super().__init__(reportHere, node)
-        self.errorCode = "P705"
-        self.errorText = "Pass the filename as an argument"
+        self.errorCode = "RP01a03"
+        self.errorText = "Function program should take an argument"
 
         self.run(node) # No need to traverse node further
 
     def run(self, node):
         """
-        Checks number of parameters handed to readCSV function
-        If at least one, passes test
+        Fail if there is no arguments for the function
         """
         try:
             if len(node.args.args) >= 1: # testing number of parameters is at least 1
@@ -22,5 +21,5 @@ class P705(astError):
                 self.fail(node)
         except Exception as e:
             print(e)
-            self.fail(node)
+            #self.fail(node)
         return
